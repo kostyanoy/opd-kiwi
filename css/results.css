@@ -8,7 +8,6 @@ html{
     background-attachment: scroll;
 }
 .indi {
-    width: 200px;
     background: #293a80;
     padding: 5px;
     text-align: center;
@@ -16,7 +15,7 @@ html{
     padding-left: 20px;
     float: left;
     width: 300px;
-    height: 45.5%;
+    height: 510px;
     margin: 25% 0 0 25%;
     position: absolute;
     top: -10%;
@@ -27,7 +26,6 @@ html{
 }
 
 .testir {
-    width: 200px;
     background: #293a80;
     padding: 5px;
     text-align: center;
@@ -35,7 +33,7 @@ html{
     padding-left: 20px;
     float: left;
     width: 300px;
-    height: 38.5%;
+    height: 510px;
     margin: 25% 0 0 25%;
     position: absolute;
     top: -10%;
@@ -46,7 +44,6 @@ html{
 }
 
 .sisad {
-    width: 200px;
     background: #293a80;
     padding: 5px;
     text-align: center;
@@ -54,7 +51,7 @@ html{
     padding-left: 20px;
     float: left;
     width: 300px;
-    height: 47.5%;
+    height: 510px;
     margin: 25% 0 0 25%;
     position: absolute;
     top: -10%;
@@ -80,12 +77,12 @@ html{
     right: 0;
     bottom: 0;
     background-image: linear-gradient(to right, transparent 0%, transparent 50%, #fff 50%, #fff 100%);
-    background-size: 6px 100%; /* Ширина деления = 6px / 2 = 3px */
+    background-size: 6px 100%; /* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ = 6px / 2 = 3px */
 }
    
 .grayback {
     position: relative;
-    left: 79%; /* Текущее состояние */
+    left: 79%; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
     width: 100%;
     height: 100%;
     background-color: #ddd;
