@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700,900&subset=cyrillic");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&subset=cyrillic');
+
+html{
+    padding: 0;
+    display: flex;
+    background-color: #537ec5;
+    background-image: url("back-welcom.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: scroll;
+    width: 100%;
+    height: 100%; 
+}
+h1 {
+    position: absolute;
+    top: 35%;
+    left: 55%;
+    height: 60%;
+    width: 50%;
+    margin: -15% 0 0 -25%;
+    text-align: right;
+    font-size: 250px;
+    color: white;
+}
+h2{
+    position: absolute;
+    top: 78%;
+    left: 45%;
+    height: 60%;
+    width: 50%;
+    margin: -15% 0 0 -25%;
+    text-align: left;
+    font-size: 100px;
+    width: 1000px;
+    color: white;
+}
+
+.custom-button1 {
+    position: absolute;
+    top: 77.9%;
+    left: 10%;
+    text-align: center;
+    color: #293a80;
+    font-size: 300px;
+
+    display: inline-block;  
+    box-sizing: border-box;
+    padding: 0 25px;
+    margin: 0 15px 15px 0;
+    outline: none;
+    border: 1px solid #f3953d;
+    border-radius: 120px;
+    height: 105px;
+    line-height: 46px;
+    font-size: 24px;
+    font-weight: 900;
+    text-decoration: none;
+    background-color:#f3953d;
+    box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;  
+    vertical-align: top;
+    transition: box-shadow 0.2s;
+  }
+  .custom-button1:focus-visible {
+    box-shadow: 0 0 0 2px #666;
+  }
+  .custom-button1:hover {
+    background-color: #DBE7F2;
+  }
+  .custom-button1:active {
+    transform: scale(0.96);
+  }
+  .custom-button1:disabled {
+    pointer-events: none;
+    opacity: 0.65;
+  }
+
+  .custom-button2 {
+    position: absolute;
+    top: 77.9%;
+    left: 39%;
+    text-align: center;
+    color: #293a80;
+    font-size: 300px;
+
+    display: inline-block;  
+    box-sizing: border-box;
+    padding: 0 25px;
+    margin: 0 15px 15px 0;
+    outline: none;
+    border: 1px solid #293a80;
+    border-radius: 120px;
+    height: 105px;
+    line-height: 46px;
+    font-size: 24px;
+    font-weight: 900;
+    text-decoration: none;
+    background-color:#f3953d;
+    box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;  
+    vertical-align: top;
+    transition: box-shadow 0.2s;
+  }
+  .custom-button2:focus-visible {
+    box-shadow: 0 0 0 2px #666;
+  }
+  .custom-button2:hover {
+    background-color: #DBE7F2;
+  }
+  .custom-button2:active {
+    transform: scale(0.96);
+  }
+  .custom-button2:disabled {
+    pointer-events: none;
+    opacity: 0.65;
+  }
