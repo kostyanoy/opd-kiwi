@@ -1,0 +1,29 @@
+.scrollable {
+  height: 20vh;
+  width: 30vw;
+  overflow: auto;
+  background-color: lightgrey;
+}
+
+
+.test {
+  display: block;
+  justify-content: center;
+  align-self: center;
+}
+
+.test .field {
+  height: 400px;
+  width: 400px;
+  background-color: lightgrey;
+  display: flex;
+  justify-content: center;
+
+}
+
+.test .field .square {
+  height: 25%;
+  width: 25%;
+  background-color: lightgrey;
+  margin: auto;
+}
