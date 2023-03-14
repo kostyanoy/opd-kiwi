@@ -2,3 +2,4 @@ __test*
 test/
 .vs/
 build/
+.vscode
