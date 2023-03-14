@@ -3,10 +3,23 @@ let developer = ['Интрапунитивность', 'Переключаемо
   let sysAdmin = ['Многозадачность', 'Самостоятельность', 'Исполнительность', 'Оперативность', 'Самоконтроль', 'Распределённое внимание', 'Наблюдательность']
 
 const checkboxes = document.querySelectorAll('input[type=checkbox]');
+let checkedCount = 0;
+checkboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('click', function() {
+    if (checkbox.checked) {
+      checkedCount++;
+      if (checkedCount > 5) {
+        checkbox.checked = false;
+        checkedCount--;
+      }
+    } else {
+      checkedCount--;
+    }
+  });
+});
   let devSum = 0;
   let testSum = 0;
   let sysSum = 0;
-
   calc.onclick = function () {
     devSum = 0;
     testSum = 0;
@@ -34,7 +47,6 @@ const checkboxes = document.querySelectorAll('input[type=checkbox]');
           sysSum++;
       }
     }
-
     let devRes = Math.round((devSum / developer.length) * 100)
     let sysRes = Math.round((sysSum / sysAdmin.length) * 100)
     let testRes = Math.round((testSum / tester.length) * 100)
