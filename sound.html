@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body {
+    font-family: sans-serif;
+    background:  #f3953d;
+    color: white;
+    text-align: center;
+  }
+</style>
+<head>
+	  <meta charset="UTF-8">
+	<title>Тест на реакцию на звук</title>
+</head>
+<body>
+	<h1>Оценка реакции на звук</h1>
+	<button id="startButton">Начать</button>
+	<div id="reactionTime"></div>
+	<script>
+		const delay = 1500;
+		let timerId;
+		function startTest() {
+			document.getElementById("startButton").style.display = "none";
+			timerId = setTimeout(playSound, delay);
+		}
+		document.getElementById("startButton").addEventListener('click', startTest);
+		function playSound() {
+			const audio = new Audio('sound1.mp3');
+			audio.play();
+			const reactionStartTime = Date.now();
+			document.addEventListener('keydown', function (event) {
+				const reactionTime = Date.now() - reactionStartTime;
+				document.getElementById("reactionTime").innerHTML = `Ваше время реакции: ${reactionTime} миллисекунд`;
+				clearTimeout(timerId);
+			});
+		}
+
+		document.getElementById("startButton").addEventListener('click', startTest);
+	</script>
+</body>
+</html>
