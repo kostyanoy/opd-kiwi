@@ -118,3 +118,17 @@ body {
       pointer-events: none;
       opacity: 0.65;
   }
+  .custom-button3 {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: orange;
+  color: white;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
