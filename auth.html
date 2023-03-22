@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аунтификация</title>
+    <link rel="stylesheet" href="css/auth.css">
+    <title>Аутентификация</title>
 </head>
 <body>
-    <form action="php/register_form.php">
-        <button>Регистрация</button>
-    </form>
-    <form action="php/login_form.php">
-        <button>Вход</button>
-    </form>
-    <form action="php/logout.php">
-        <button>Выйти</button>
-    </form>
+    <div class="button-container">
+        <a href="php/register_form.php" class="button">Регистрация</a>
+    </div>
+    <div class="button-container">
+        <a href="php/login_form.php" class="button">Вход</a>
+    </div>
+    <div class="button-container">
+        <a href="php/logout.php" class="button">Выход</a>
+    </div>
+    <div class="button-container">
+        <a href="/index.html" class="button">На главную</a>
+    </div>
 </body>
 </html>
