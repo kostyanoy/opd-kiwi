@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<style>
+  body {
+    font-family: sans-serif;
+    background:  #f3953d;
+    color: white;
+    text-align: center;
+  }
+</style>
+    <title>Звук чет/нечет</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h1>Тест на сложную звуковую реакцию</h1>
+    <p>Сложите два числа и определите четность или нечетность результата(как можно быстрее)</p>
+    <button onclick="startTest()">Начать</button>
+    <div id="question"></div>
+    <button onclick="checkAnswer('четное')">Четное</button>
+    <button onclick="checkAnswer('нечетное')">Нечетное</button>
+    <div id="result"></div>
+    <audio id="audio"></audio>
+    <script src="js/hardSound.js"></script>
+  </body>
+</html>
+
