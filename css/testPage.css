@@ -12,8 +12,9 @@ header{
     background-color: #eebb79;
     color: #000000;
 }
-div{
-    margin-left: 20px;
+
+html, body{
+    height: 100%;
 }
 body{
     background-color:rgb(145, 145, 195);
@@ -48,4 +49,21 @@ button:hover{
 }
 .custom-button-PVK-test{
     width: 120px;
+}
+.wrapper {
+	position: relative;
+	min-height: 100%;
+}
+.content {
+	padding-bottom: 90px;
+}
+.footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 80px;
+}
+.test{
+    margin-left: 20px;
 }
