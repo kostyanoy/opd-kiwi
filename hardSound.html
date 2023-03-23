@@ -1,26 +1,30 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="ru">
-<style>
-  body {
-    font-family: sans-serif;
-    background:  #f3953d;
-    color: white;
-    text-align: center;
-  }
-</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/hardSound.css">
+  <button class="buttonBack" onclick="location.href='index.html'">Назад</button>
+  <title>Document</title>
+</head>
     <title>Звук чет/нечет</title>
     <meta charset="UTF-8">
   </head>
   <body>
     <h1>Тест на сложную звуковую реакцию</h1>
     <p>Сложите два числа и определите четность или нечетность результата(как можно быстрее)</p>
-    <button onclick="startTest()">Начать</button>
+    <button class="start" onclick="startTest()">Начать</button>
+    <p>
     <div id="question"></div>
-    <button onclick="checkAnswer('четное')">Четное</button>
-    <button onclick="checkAnswer('нечетное')">Нечетное</button>
+    <button class="even" onclick="checkAnswer('четное')">Четное</button>
+    <button class="odd" onclick="checkAnswer('нечетное')">Нечетное</button>
     <div id="result"></div>
+    <p>
+    <div id="average"></div>
     <audio id="audio"></audio>
-    <script src="hardSound.js"></script>
+    <script src="js/hardSound.js"></script>
   </body>
 </html>
 
