@@ -28,7 +28,11 @@ function startTest() {
         return;
     }
     const [a, b] = generateNumbers();
-    playAudio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=${a}+плюс+${b}&tl=ru`);
+    // закомментированное не работает на сервере
+    // playAudio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=${a}+плюс+${b}&tl=ru`);
+    var audio = new SpeechSynthesisUtterance(`${a} плюс ${b}`)
+    window.speechSynthesis.speak(audio);
+
     startTime = performance.now();
     return [a, b];
 }
