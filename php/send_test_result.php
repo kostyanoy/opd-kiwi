@@ -16,17 +16,23 @@ $correct = $_POST["correct"];
 $misses = $_POST["misses"];
 $date = date('Y-m-d G:i:s', time());
 
-$stmt = $conn->prepare('SELECT t.id FROM test_results r JOIN tests t on t.id = r.test_id  WHERE t.name = ?');
+$stmt = $conn->prepare('SELECT t.id FROM tests t WHERE t.name = ?');
 $stmt->bind_param("s", $test_name);
 $stmt->execute();
 $result = $stmt->get_result();
-$stmt->close();
 
-if (!$result){
-    die("Нет теста с таким названием");
-}
+print_r($result);
 
 $test_id = $result->fetch_array()["id"];
+
+echo $test_name;
+echo $test_id;
+echo $stmt->error;
+
+if (!$test_id){
+    die("Нет теста с таким названием");
+}
+$stmt->close();
 
 $stmt = $conn->prepare('INSERT INTO test_results (user_id, test_id, avg_time, total_time, correct, misses, date) VALUES (?, ?, ?, ?, ?, ?, ?)');
 $stmt->bind_param("iiddiis", $user_id, $test_id, $avg_time, $total_time, $correct, $misses, $date);

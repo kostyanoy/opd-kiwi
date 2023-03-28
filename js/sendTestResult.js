@@ -17,3 +17,7 @@ document.getElementById("sendForm").addEventListener("submit", function (event) 
     };
     xhr.send(formData);
 });
+
+function submit() {
+    document.getElementById("submit-button").click();
+}

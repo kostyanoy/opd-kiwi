@@ -1,4 +1,5 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -9,31 +10,45 @@
   <button class="back-button" onclick="location.href='testPage.html'">Назад</button>
   <title>Document</title>
 </head>
-    <title>Звук чет/нечет</title>
-    <meta charset="UTF-8">
-  </head>
-  <body>
-    <h1>Тест на сложение в уме(звук)</h1>
-    <button class="instructions-button" onclick="openModalW()">Инструкция</button>
-    <p>
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModalW()">&times</span>
-        <h2>Инструкция</h2>
-        <p>Для начала теста, нажмите кнопку "Начать". Вы услышите два числа, ваша задача сложить их и определить, является ли результат четным или нечетным. Нажмите соответствующую кнопку, чтобы выбрать ответ. Вы можете повторить тест несколько раз, чтобы улучшить свой результат.</p>
-      </div>
-    </div>
-    <button class="start" onclick="startTest()">Начать</button>
-    <p>
-    <div id="question"></div>
-    <button class="even" onclick="checkAnswer('четное')">Четное</button>
-    <button class="odd" onclick="checkAnswer('нечетное')">Нечетное</button>
-    <p>
-    <div id="result"></div>
-    <p>
-    <div id="average"></div>
-    <audio id="audio"></audio>
-    <script src="js/hardSound.js"></script>
-  </body>
-</html>
+<title>Звук чет/нечет</title>
+<meta charset="UTF-8">
+</head>
 
+<body>
+  <h1>Тест на сложение в уме(звук)</h1>
+  <button class="instructions-button" onclick="openModalW()">Инструкция</button>
+  <p>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModalW()">&times</span>
+      <h2>Инструкция</h2>
+      <p>Для начала теста, нажмите кнопку "Начать". Вы услышите два числа, ваша задача сложить их и определить, является
+        ли результат четным или нечетным. Нажмите соответствующую кнопку, чтобы выбрать ответ. Вы можете повторить тест
+        несколько раз, чтобы улучшить свой результат.</p>
+    </div>
+  </div>
+  <button class="start" onclick="startTest()">Начать</button>
+  <p>
+  <div id="question"></div>
+  <button class="even" onclick="checkAnswer('четное')">Четное</button>
+  <button class="odd" onclick="checkAnswer('нечетное')">Нечетное</button>
+  <p>
+  <div id="result"></div>
+  <p>
+  <div id="average"></div>
+  <audio id="audio"></audio>
+
+  <form id="sendForm">
+    <input type="hidden" name="test_name" id="test_name" value="Сложение (звук)">
+    <input type="hidden" name="avg_time" id="avg_time">
+    <input type="hidden" name="total_time" id="total_time">
+    <input type="hidden" name="correct" id="correct">
+    <input type="hidden" name="misses" id="misses">
+    <input id="submit-button" type="submit" value="Submit" style="display: none;">
+  </form>
+
+  <script src="js/sendTestResult.js"></script>
+  <script src="js/hardSound.js"></script>
+</body>
+
+</html>
