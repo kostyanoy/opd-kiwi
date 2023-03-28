@@ -70,7 +70,7 @@ function checkAnswer(answer) {
         document.getElementById("total_time").value = totalReactionTime.toFixed(2);
         document.getElementById("correct").value = maxAttempts - wrong;
         document.getElementById("misses").value = wrong;
-        document.getElementById("sendForm").submit();
+        document.getElementById("submit-button").click();
         //sendForm
     }
 }

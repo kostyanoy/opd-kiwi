@@ -33,7 +33,7 @@ function playSound() {
         document.getElementById("test_name").value = name;
         document.getElementById("total_time").value = totalReactionTime.toFixed(2);
         document.getElementById("avg_time").value = averageReactionTime.toFixed(2);
-        document.getElementById("sendForm").submit();
+        document.getElementById("submit-button").click();
         //sendForm
     }
 }
