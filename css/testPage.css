@@ -17,8 +17,8 @@ html, body{
     height: 100%;
 }
 body{
-    background-color:#202020;
-    color: #eeac4a;
+    background-color:rgba(35, 35, 101, 0.45);
+    color: rgb(65, 65, 119);
     /*rgb(145, 145, 195);*/
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: large;
@@ -45,6 +45,9 @@ button:hover{
 }
 .custom-button-hard-math-sound{
     width: 190px;
+}
+.custom-button-hard-color{
+    width: 130px;
 }
 .custom-button-hard-math-picture{
     width: 230px;
