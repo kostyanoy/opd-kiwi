@@ -188,6 +188,7 @@ class Test1 extends TestContainer {
 			document.removeEventListener("keydown", this.listener)
 
 			this.startButton.style.display = "block"
+			send(this.getAverageTime(), this.totalTime, this.correct, this.incorrect)
 		}, time)
 	}
 }
@@ -290,6 +291,7 @@ class Test2 extends TestContainer {
 			document.removeEventListener("keydown", this.listener)
 
 			this.startButton.style.display = "block"
+			send(this.getAverageTime(), this.totalTime, this.correct, this.incorrect)
 		}, time)
 	}
 }
@@ -344,6 +346,7 @@ class Test3 extends Test2 {
 			document.removeEventListener("keydown", this.listener)
 
 			this.startButton.style.display = "block"
+			send(this.getAverageTime(), this.totalTime, this.correct, this.incorrect)
 		}, time)
 	}
 }
@@ -360,6 +363,30 @@ document.addEventListener('keydown', (event) => {
 		event.preventDefault();
 	}
 });
+
+
+function openModalW() {
+	document.getElementById("modal").style.display = "block";
+}
+
+function closeModalW() {
+	document.getElementById("modal").style.display = "none";
+}
+
+window.onclick = function (event) {
+	const modal = document.getElementById("modal");
+	if (event.target === modal) {
+		modal.style.display = "none";
+	}
+}
+
+function send(avg, total, correct, misses){
+	document.getElementById("avg_time").value = avg
+	document.getElementById("total_time").value = total
+	document.getElementById("correct").value = correct
+	document.getElementById("misses").value = misses
+	document.getElementById("submit-button").click()
+}
 
 
 
@@ -385,19 +412,4 @@ if (document.querySelector("#test3 .btn")) {
 		document.querySelector("#test3 .btn"),
 		document.querySelector("#test3 .result")
 	)
-}
-
-function openModalW() {
-	document.getElementById("modal").style.display = "block";
-}
-
-function closeModalW() {
-	document.getElementById("modal").style.display = "none";
-}
-
-window.onclick = function (event) {
-	const modal = document.getElementById("modal");
-	if (event.target === modal) {
-		modal.style.display = "none";
-	}
 }

@@ -65,7 +65,7 @@ $row = $test_results->fetch_array();
             while ($row) {
                 $test_id = $row["test_id"];
                 $cur_test = $tests[$row["name"]];
-                echo "<table><tr>";
+                echo "<table><caption>{$row["name"]}</caption><tr>";
                 foreach ($cur_test as $col) {
                     echo "<th> {$col["russian"]} </th>";
                 }
