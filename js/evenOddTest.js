@@ -7,7 +7,7 @@ let startTime;
 let a;
 let b;
 let attempts = 0;
-const maxAttempts = 5;
+const maxAttempts = 30;
 let totalReactionTime = 0;
 let averageReactionTime;
 
