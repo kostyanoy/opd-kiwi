@@ -8,7 +8,7 @@ let a;
 let b;
 let attempts = 0;
 const maxAttempts = 30;
-let totalReactionTime = 0;
+let totalReactionTime = 0;7
 let averageReactionTime;
 
 function generateNumbers() {
@@ -30,15 +30,17 @@ function startTest() {
 }
 
 function checkAnswer(answer) {
+    let wrong = 0
     let time = performance.now() - startTime;
     if (answer === "четное" && (a + b) % 2 === 0 || answer === "нечетное" && (a + b) % 2 !== 0) {
         resultDiv.innerText = `Ваше время реакции: ${(time).toFixed(2)} миллисекунд.`;
-        totalReactionTime+=time
-        averageReactionTime = totalReactionTime / attempts;
+        document.querySelector(".start").style.display = "block";
+        totalReactionTime+=time;
     } else {
         resultDiv.innerText = "Ошибочка(";
+        wrong++;
     }
-    document.querySelector(".start").style.display = "block";
+    averageReactionTime = totalReactionTime / (attempts - wrong);
     if (attempts === maxAttempts) {
         average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(2)} миллисекунд.`;
     }
