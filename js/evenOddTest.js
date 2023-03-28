@@ -7,9 +7,9 @@ let a;
 let b;
 let attempts = 0;
 const maxAttempts = 30;
-let totalReactionTime = 0;7
+let totalReactionTime = 0;
 let averageReactionTime;
-name = 'Оценка скорости реакции на сложение в уме'
+name = 'Оценка скорости реакции на сложение в уме(текст)'
 function generateNumbers() {
     a = Math.floor(Math.random() * (max - min + 1)) + min;
     b = Math.floor(Math.random() * (max - min + 1)) + min;
