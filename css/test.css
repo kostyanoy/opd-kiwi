@@ -118,7 +118,7 @@ h4{
     pointer-events: none;
     opacity: 0.65;
 }
-.custom-button3 {
+.back-button {
 position: fixed;
 top: 20px;
 right: 20px;
@@ -132,6 +132,6 @@ border: none;
 outline: none;
 cursor: pointer;
 }
-.custom-button3:hover{
+.back-button{
   background-color:#f5ad69;
 }
