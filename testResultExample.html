@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пример отправки результата теста</title>
+</head>
+
+<form id="sendForm">
+  <label for="test_name">Test name:</label>
+  <input type="text" name="test_name" id="test_name">
+
+  <label for="avg_time">Average Time:</label>
+  <input type="text" name="avg_time" id="avg_time">
+
+  <label for="total_time">Total Time:</label>
+  <input type="text" name="total_time" id="total_time">
+
+  <label for="correct">Correct:</label>
+  <input type="text" name="correct" id="correct">
+
+  <label for="misses">Misses:</label>
+  <input type="text" name="misses" id="misses">
+
+  <input type="submit" value="Submit">
+</form>
+
+<script src="js/sendTestResult.js"></script>
+
+</html>

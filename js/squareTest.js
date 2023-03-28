@@ -123,6 +123,7 @@ class Test1 extends TestContainer {
 		this.startButton.onclick = () => {
 			this.setLabel("Тест начался!")
 			this.test()
+			this.startButton.style.display = "none"
 		}
 
 		this.listener = (event) => {
@@ -185,6 +186,8 @@ class Test1 extends TestContainer {
 
 			this.setLabel(`Поздравляем: ваш результат ${res} мс. ${this.chooseResult(this.results, res)} ssd: ${ssd}, avg = ${this.getAverageTime()}`)
 			document.removeEventListener("keydown", this.listener)
+
+			this.startButton.style.display = "block"
 		}, time)
 	}
 }
@@ -209,6 +212,7 @@ class Test2 extends TestContainer {
 		this.startButton.onclick = () => {
 			this.setLabel("Тест начался!")
 			this.test()
+			this.startButton.style.display = "none"
 		}
 
 		this.listener = (event) => {
@@ -284,6 +288,8 @@ class Test2 extends TestContainer {
 
 			this.setLabel(`Поздравляем: Среднее время: ${this.getAverageTime()} мс. Правильно: ${this.correct}. Неправильно: ${this.incorrect}. ${res}`)
 			document.removeEventListener("keydown", this.listener)
+
+			this.startButton.style.display = "block"
 		}, time)
 	}
 }
@@ -336,11 +342,11 @@ class Test3 extends Test2 {
 
 			this.setLabel(`Поздравляем: Среднее время: ${this.getAverageTime()} мс. Правильно: ${this.correct}. Неправильно: ${this.incorrect}. ${res}`)
 			document.removeEventListener("keydown", this.listener)
+
+			this.startButton.style.display = "block"
 		}, time)
 	}
 }
-
-
 
 
 
@@ -350,7 +356,7 @@ const testButtons = document.querySelectorAll(".test .btn")
 //блокировать нажатие на кнопку при нажатии пробела или enter
 document.addEventListener('keydown', (event) => {
 	console.log(event.code)
-	if ((event.code === 'Space' || event.code == "Enter") && isActive(testButtons)) {
+	if ((event.code === 'Space' || event.code == "Enter")) {
 		event.preventDefault();
 	}
 });
@@ -374,3 +380,18 @@ const t3 = new Test3(
 	document.querySelector("#test3 .result")
 )
 
+
+function openModalW() {
+    document.getElementById("modal").style.display = "block";
+}
+
+function closeModalW() {
+    document.getElementById("modal").style.display = "none";
+}
+
+window.onclick = function (event) {
+    const modal = document.getElementById("modal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}

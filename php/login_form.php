@@ -26,12 +26,12 @@
     <form method="post">
         <label>
             Логин:
-            <input type="text" name="username">
+            <input type="text" name="username" required>
         </label>
         <br>
         <label>
             Пароль:
-            <input type="password" name="password">
+            <input type="password" name="password" required>
         </label>
         <br>
         <button type="submit">Войти</button>

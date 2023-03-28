@@ -20,27 +20,27 @@
     <form method="post">
         <label>
             Логин:
-            <input type="text" name="username">
+            <input type="text" name="username" required>
         </label>
         <br>
         <label>
             Почта:
-            <input type="email" name="email">
+            <input type="email" name="email" required>
         </label>
         <br>
         <label>
             Пароль:
-            <input type="password" name="password">
+            <input type="password" name="password" required>
         </label>
         <br>
         <label>
             Возраст:
-            <input type="number" min="0" max="100" name="age">
+            <input type="number" min="0" max="100" name="age" required>
         </label>
         <br>
         <label>
             Пол:
-            <select name="gender">
+            <select name="gender" required>
                 <option value="male">Мужчина</option>
                 <option value="female">Женщина</option>
                 <option value="helicopter">Боевой вертолёт</option>
