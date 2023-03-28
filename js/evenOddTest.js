@@ -1,6 +1,5 @@
 const min = 10;
 const max = 99;
-const questionDiv = document.getElementById("question");
 const average = document.getElementById("average");
 const resultDiv = document.getElementById("result");
 let startTime;
@@ -10,7 +9,7 @@ let attempts = 0;
 const maxAttempts = 30;
 let totalReactionTime = 0;7
 let averageReactionTime;
-
+name = 'Оценка скорости реакции на сложение в уме'
 function generateNumbers() {
     a = Math.floor(Math.random() * (max - min + 1)) + min;
     b = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -30,12 +29,12 @@ function startTest() {
 }
 
 function checkAnswer(answer) {
-    let wrong = 0
+    let wrong = 0;
     let time = performance.now() - startTime;
-    if (answer === "четное" && (a + b) % 2 === 0 || answer === "нечетное" && (a + b) % 2 !== 0) {
+    if ((answer === "четное" && (a + b) % 2 === 0) || (answer === "нечетное" && (a + b) % 2 !== 0)) {
         resultDiv.innerText = `Ваше время реакции: ${(time).toFixed(2)} миллисекунд.`;
         document.querySelector(".start").style.display = "block";
-        totalReactionTime+=time;
+        totalReactionTime += time;
     } else {
         resultDiv.innerText = "Ошибочка(";
         wrong++;
@@ -43,6 +42,15 @@ function checkAnswer(answer) {
     averageReactionTime = totalReactionTime / (attempts - wrong);
     if (attempts === maxAttempts) {
         average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(2)} миллисекунд.`;
+
+        //sendForm
+        document.getElementById("test_name").value = name;
+        document.getElementById("avg_time").value = averageReactionTime.toFixed(2);
+        document.getElementById("total_time").value = totalReactionTime.toFixed(2);
+        document.getElementById("correct").value = maxAttempts - wrong;
+        document.getElementById("misses").value = wrong;
+        document.getElementById("sendForm").submit();
+        //sendForm
     }
 }
 
