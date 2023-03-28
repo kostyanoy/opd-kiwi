@@ -23,7 +23,7 @@ body {
     color: white;
     text-align: center;
 }
-button.even, button.odd, button.start, button.instructions-button{
+button.start, button.instructions-button{
     background-color: rgb(220, 125, 36);
     color: white;
     border: none;
@@ -34,7 +34,7 @@ button.even, button.odd, button.start, button.instructions-button{
     border-radius: 20px;
 }
 
-button.even:hover, button.odd:hover, button.start:hover, button.back-button:hover{
+button.start:hover, button.back-button:hover{
     background-color: rgba(217, 145, 84, 0.84);
 }
 .modal {

@@ -1,0 +1,39 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/evenOddTest.css">
+    <button class="back-button" onclick="location.href='testPage.html'">Назад</button>
+    <title>Document</title>
+</head>
+<title>Звук чет/нечет</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<h1>Тест на сложение в уме(текст)</h1>
+<button class="instructions-button" onclick="openModalW()">Инструкция</button>
+<p>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalW()">&times</span>
+        <h2>Инструкция</h2>
+        <p>Для начала теста, нажмите кнопку "Начать". Вы увидете два числа, ваша задача сложить их и определить, является ли результат четным или нечетным. Нажмите соответствующую кнопку, чтобы выбрать ответ. Вы можете повторить тест несколько раз, чтобы улучшить свой результат.</p>
+    </div>
+</div>
+<button class="start" onclick="startTest()">Начать</button>
+<p>
+<div id="question"></div>
+<button class="even" onclick="checkAnswer('четное')">Четное</button>
+<button class="odd" onclick="checkAnswer('нечетное')">Нечетное</button>
+<p>
+<div id="result"></div>
+<p>
+<div id="average"></div>
+<audio id="audio"></audio>
+<script src="js/evenOddTest.js"></script>
+</body>
+</html>
+
