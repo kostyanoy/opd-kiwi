@@ -31,7 +31,7 @@ function playSound() {
 }
 
 function openModalW() {
-    document.querySelector(".start").style.display = "block";
+    document.getElementById("modal").style.display = "block";
 }
 
 function closeModalW() {
