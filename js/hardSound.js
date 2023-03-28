@@ -16,6 +16,9 @@ function generateNumbers() {
     return [a, b];
 }
 
+let startTimeFirstDigit;
+let timeToSpeakDigits;
+
 function startTest() {
     document.querySelector(".start").style.display = "none"
     attempts++;
@@ -25,6 +28,13 @@ function startTest() {
     const [a, b] = generateNumbers();
     let audio = new SpeechSynthesisUtterance(`${a} плюс ${b}`)
     audio.lang = 'ru-RU';
+    audio.onboundary = function(event) {
+        if (event.charIndex === 0) {
+            startTimeFirstDigit = performance.now();
+        } else {
+            timeToSpeakDigits = performance.now() - startTimeFirstDigit;
+        }
+    }
     window.speechSynthesis.speak(audio);
 
     startTime = performance.now();
@@ -32,18 +42,18 @@ function startTest() {
 }
 
 function checkAnswer(answer) {
-    const time = performance.now() - startTime;
+    const time = performance.now() - startTime - timeToSpeakDigits;
     if (answer === "четное" && (a + b) % 2 === 0 || answer === "нечетное" && (a + b) % 2 !== 0) {
-        if ((time - 2800).toFixed(2) < 0) {
+        if (time.toFixed(2) < 0) {
             resultDiv.innerText = "А вот так вот не надо...";
         } else {
-            resultDiv.innerText = `Ваше время реакции: ${(time - 2700).toFixed(2)} миллисекунд.`;
+            resultDiv.innerText = `Ваше время реакции: ${time .toFixed(2)} миллисекунд.`;
             document.querySelector(".start").style.display = "block";
-            totalReactionTime += time - 2700;
+            totalReactionTime += time;
             averageReactionTime = totalReactionTime / attempts;
         }
     } else {
-        if ((time - 2800).toFixed(2) < 0) {
+        if (time.toFixed(2) < 0) {
             resultDiv.innerText = "А вот так вот не надо...";
         } else {
             resultDiv.innerText = "Ошибочка(";
@@ -54,6 +64,7 @@ function checkAnswer(answer) {
         average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(2)} миллисекунд.`;
     }
 }
+
 
 function openModalW() {
     document.getElementById("modal").style.display = "block";
