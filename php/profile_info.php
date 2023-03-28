@@ -23,28 +23,110 @@ $profile = [
 ];
 
 $tests = [
-    "Простая сенсомоторная реакция (звук)" => [
+    "Звук" => [
+        [
+            "english" => "avg_time",
+            "russian" => "Среднее время",
+        ],
+        [
+            "english" => "total_time",
+            "russian" => "Всего время",
+        ],
         [
             "english" => "correct",
             "russian" => "Правильно",
         ],
         [
-            "english" => "avg_time",
-            "russian" => "Среднее время",
+            "english" => "misses",
+            "russian" => "Промахи",
         ],
         [
             "english" => "date",
             "russian" => "Дата",
         ],
     ],
-    "Простая сенсомоторная реакция (цвет)" => [
+    "Свет" => [
+        [
+            "english" => "avg_time",
+            "russian" => "Среднее время",
+        ],
         [
             "english" => "total_time",
             "russian" => "Всего время",
         ],
         [
+            "english" => "correct",
+            "russian" => "Правильно",
+        ],
+        [
+            "english" => "misses",
+            "russian" => "Промахи",
+        ],
+        [
+            "english" => "date",
+            "russian" => "Дата",
+        ],
+    ],
+    "Цвет" => [
+        [
             "english" => "avg_time",
             "russian" => "Среднее время",
+        ],
+        [
+            "english" => "total_time",
+            "russian" => "Всего время",
+        ],
+        [
+            "english" => "correct",
+            "russian" => "Правильно",
+        ],
+        [
+            "english" => "misses",
+            "russian" => "Промахи",
+        ],
+        [
+            "english" => "date",
+            "russian" => "Дата",
+        ],
+    ],
+    "Сложение (звук)" => [
+        [
+            "english" => "avg_time",
+            "russian" => "Среднее время",
+        ],
+        [
+            "english" => "total_time",
+            "russian" => "Всего время",
+        ],
+        [
+            "english" => "correct",
+            "russian" => "Правильно",
+        ],
+        [
+            "english" => "misses",
+            "russian" => "Промахи",
+        ],
+        [
+            "english" => "date",
+            "russian" => "Дата",
+        ],
+    ],
+    "Сложение (текст)" => [
+        [
+            "english" => "avg_time",
+            "russian" => "Среднее время",
+        ],
+        [
+            "english" => "total_time",
+            "russian" => "Всего время",
+        ],
+        [
+            "english" => "correct",
+            "russian" => "Правильно",
+        ],
+        [
+            "english" => "misses",
+            "russian" => "Промахи",
         ],
         [
             "english" => "date",

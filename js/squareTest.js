@@ -362,36 +362,42 @@ document.addEventListener('keydown', (event) => {
 });
 
 
-const t1 = new Test1(
-	document.querySelectorAll("#test1 .field .square"),
-	document.querySelector("#test1 .btn"),
-	document.querySelector("#test1 .result")
-)
 
-const t2 = new Test2(
-	document.querySelectorAll("#test2 .field .square"),
-	document.querySelector("#test2 .btn"),
-	document.querySelector("#test2 .result")
-)
+if (document.querySelector("#test1 .btn")) {
+	const t1 = new Test1(
+		document.querySelectorAll("#test1 .field .square"),
+		document.querySelector("#test1 .btn"),
+		document.querySelector("#test1 .result")
+	)
+}
 
-const t3 = new Test3(
-	document.querySelectorAll("#test3 .field .square"),
-	document.querySelector("#test3 .btn"),
-	document.querySelector("#test3 .result")
-)
+if (document.querySelector("#test2 .btn")) {
+	const t2 = new Test2(
+		document.querySelectorAll("#test2 .field .square"),
+		document.querySelector("#test2 .btn"),
+		document.querySelector("#test2 .result")
+	)
+}
 
+if (document.querySelector("#test3 .btn")) {
+	const t3 = new Test3(
+		document.querySelectorAll("#test3 .field .square"),
+		document.querySelector("#test3 .btn"),
+		document.querySelector("#test3 .result")
+	)
+}
 
 function openModalW() {
-    document.getElementById("modal").style.display = "block";
+	document.getElementById("modal").style.display = "block";
 }
 
 function closeModalW() {
-    document.getElementById("modal").style.display = "none";
+	document.getElementById("modal").style.display = "none";
 }
 
 window.onclick = function (event) {
-    const modal = document.getElementById("modal");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
+	const modal = document.getElementById("modal");
+	if (event.target === modal) {
+		modal.style.display = "none";
+	}
 }
