@@ -23,7 +23,6 @@ function playSound() {
         document.querySelector(".start").style.display = "block";
         averageReactionTime = reactionTime / attempts;
         clearTimeout(timerId);
-        averageReactionTime = reactionTime / attempts;
     });
     if (attempts === maxAttempts) {
         average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(2)} миллисекунд.`;

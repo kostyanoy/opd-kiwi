@@ -7,7 +7,7 @@ let startTime;
 let a;
 let b;
 let attempts = 0;
-const maxAttempts = 30;
+const maxAttempts = 5;
 let totalReactionTime = 0;
 let averageReactionTime;
 
@@ -33,7 +33,7 @@ function checkAnswer(answer) {
     let time = performance.now() - startTime;
     if (answer === "четное" && (a + b) % 2 === 0 || answer === "нечетное" && (a + b) % 2 !== 0) {
         resultDiv.innerText = `Ваше время реакции: ${(time).toFixed(2)} миллисекунд.`;
-        totalReactionTime=time
+        totalReactionTime+=time
         averageReactionTime = totalReactionTime / attempts;
     } else {
         resultDiv.innerText = "Ошибочка(";
