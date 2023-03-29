@@ -1,7 +1,7 @@
 const delay = 1500;
 let timerId;
 let attempts = 0;
-const maxAttempts = 30;
+const maxAttempts = 5;
 let totalReactionTime = 0;
 let averageReactionTime;
 name= "Оценка скорости реакции на звук"
