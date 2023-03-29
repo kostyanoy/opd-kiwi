@@ -77,7 +77,7 @@ class TestContainer {
 
 	addReactionTime(time) {
 		this.reactionTime.push(time)
-		this.totalTime += time
+		this.totalTime += Math.round(time)
 	}
 
 
