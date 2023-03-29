@@ -9,7 +9,7 @@ let attempts = 0;
 const maxAttempts = 5;
 let totalReactionTime = 0;
 let averageReactionTime;
-name = 'Оценка скорости реакции на сложение в уме(звук)'
+//name = 'Оценка скорости реакции на сложение в уме(звук)'
 function generateNumbers() {
     a = Math.floor(Math.random() * (max - min + 1)) + min;
     b = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -65,7 +65,7 @@ function checkAnswer(answer) {
         average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(2)} миллисекунд.`;
 
         //sendForm
-        document.getElementById("test_name").value = name;
+        //document.getElementById("test_name").value = name;
         document.getElementById("avg_time").value = averageReactionTime.toFixed(2);
         document.getElementById("total_time").value = totalReactionTime.toFixed(2);
         document.getElementById("correct").value = maxAttempts - wrong;

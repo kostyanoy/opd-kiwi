@@ -4,7 +4,8 @@ let attempts = 0;
 const maxAttempts = 5;
 let totalReactionTime = 0;
 let averageReactionTime;
-name= "Оценка скорости реакции на звук"
+//name= "Оценка скорости реакции на звук"
+
 function startTest() {
     document.querySelector(".start").style.display = "none"
     attempts++;
@@ -18,19 +19,20 @@ function playSound() {
     const audio = new Audio('audio/sound1.mp3');
     audio.play();
     const reactionStartTime = Date.now();
-    document.addEventListener('keydown', function (event) {
+    const listener = function (event) {
         const reactionTime = Date.now() - reactionStartTime;
         document.getElementById("reactionTime").innerHTML = `Ваше время реакции: ${reactionTime} миллисекунд`;
-        document.querySelector(".start").style.display = "block";-
-        clearTimeout(timerId);
+        document.querySelector(".start").style.display = "block";
         totalReactionTime += reactionTime;
         averageReactionTime = totalReactionTime / attempts;
-    });
+        document.removeEventListener('keydown', listener);
+    }
+    document.addEventListener('keydown', listener);
     if (attempts === maxAttempts) {
         average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(2)} миллисекунд.`;
 
         //sendForm
-        document.getElementById("test_name").value = name;
+        //document.getElementById("test_name").value = name;
         document.getElementById("total_time").value = totalReactionTime.toFixed(2);
         document.getElementById("avg_time").value = averageReactionTime.toFixed(2);
         document.getElementById("submit-button").click();
