@@ -55,6 +55,12 @@ button:hover{
 .custom-button-PVK-test{
     width: 120px;
 }
+.custom-button-movement-easy{
+    width: 150px;
+}
+.custom-button-movement-hard{
+    width: 150px;
+}
 .wrapper {
 	position: relative;
 	min-height: 100%;
