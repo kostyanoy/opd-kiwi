@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -8,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/squareTest.css">
     <button class="back-button" onclick="location.href='testPage.html'">Назад</button>
-    <title>Document</title>
+    <title>Тест на свет</title>
 </head>
 
 <body>
-    <h1>Тест на цвет</h1>
+    <h1>Тест на свет</h1>
     <button class="instructions-button" onclick="openModalW()">Инструкция</button>
     <p>
     <div id="modal" class="modal">
@@ -21,11 +20,13 @@
             <h2>Инструкция</h2>
             <p>
                 Для начала теста, нажмите кнопку "Начать тест". <br>
-                Вам надо как можно быстрее нажимать пробел, когда вы увидите появляющиеся квадраты.
+                Квадраты начнут менять цвет. <br>
+                Вам надо как можно быстрее нажимать "пробел", когда вы увидите, что какой-то квадрат сменил цвет.
             </p>
         </div>
     </div>
-    <div class="test" id="test1">
+    <p>Нажимайте "пробел", когда квадрат сменит цвет!</p>
+    <div class="test" id="test">
         <div class="field">
             <div class="square"></div>
             <div class="square"></div>
@@ -46,7 +47,9 @@
     </form>
 
     <script src="js/sendTestResult.js"></script>
-    <script src="js/squareTest.js"></script>
+    <script src="js/squareBase.js"></script>
+    <script src="js/squareLight.js"></script>
+    <script src="js/modalWindowController.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -8,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/squareTest.css">
     <button class="back-button" onclick="location.href='testPage.html'">Назад</button>
-    <title>Document</title>
+    <title>Тест на цвет</title>
 </head>
 
 <body>
@@ -21,18 +20,20 @@
             <h2>Инструкция</h2>
             <p>
                 Для начала теста, нажмите кнопку "Начать тест". <br>
-                Вам надо нажимать "пробел", если цвет квадрата повторился или "enter", если квадрат
-                сменил цвет. 
+                Начнут появляться квадраты разных цветов. <br>
+                Вам надо как можно быстрее нажимать соответствующую им кнопку, когда вы увидите, что какой-то квадрат сменил цвет. <br>
+                Нажимайте кнопки "1", "2", "3" соответственно.
             </p>
         </div>
     </div>
-
-    <div class="test" id="test3">
+    <p>Нажимайте "1", "2" или "3", когда квадрат сменит цвет!</p>
+    <div class="test" id="test">
         <div class="field">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
+            <div class="square">1</div>
+            <div class="square">2</div>
+            <div class="square">3</div>
         </div>
+
         <button class="btn start">Начать тест</button>
         <div class="result">Здесь будет отображен результат</div>
     </div>
@@ -47,7 +48,9 @@
     </form>
 
     <script src="js/sendTestResult.js"></script>
-    <script src="js/squareTest.js"></script>
+    <script src="js/squareBase.js"></script>
+    <script src="js/squareColor.js"></script>
+    <script src="js/modalWindowController.js"></script>
 </body>
 
 </html>
