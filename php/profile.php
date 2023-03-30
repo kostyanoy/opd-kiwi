@@ -63,8 +63,11 @@ $row = $test_results->fetch_array();
             <!-- show test results in different tables -->
             <?php
             while ($row) {
+                $cur_test = $tests["other"];
+                if (key_exists($row["name"], $tests)){
+                    $cur_test = $tests[$row["name"]];
+                }
                 $test_id = $row["test_id"];
-                $cur_test = $tests[$row["name"]];
                 echo "<table><caption>{$row["name"]}</caption><tr>";
                 foreach ($cur_test as $col) {
                     echo "<th> {$col["russian"]} </th>";
