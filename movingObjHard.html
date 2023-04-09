@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/movingObjHard.css">
+    <button class="back-button" onclick="location.href='testPage.html'">Назад</button>
+    <title>Document</title>
+</head>
+<meta charset="UTF-8">
+</head>
+<body>
+<h1>Оценка точности реакции(сложная)</h1>
+<button class="instructions-button" onclick="openModalW()">Инструкция</button>
+<p>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalW()">&times</span>
+        <h2>Инструкция</h2>
+        <p>Для начала теста, нажмите кнопку "Начать". Нажимайте на цифры: (1-первый круг, 2-второй круг, 3-третий круг), когда точки будут находиться внутри круов. После 10 попыток тест завершится(для каждого круга), и вы увидите ваш средний процент попадания в круги. Вы
+            можете повторить тест несколько раз, чтобы улучшить свой результат.</p>
+    </div>
+</div>
+<p>Нажимайте на цифры: (1-первый круг, 2-второй круг, 3-третий круг), когда точки будут находиться внутри круга. </p>
+<progress id="progress1" value="0" max="100"></progress>
+<p>
+<div>Ваш процент попадания для 1 круга: <span id="result1"></span></div>
+<p>
+<progress id="progress2" value="0" max="100"></progress>
+<div>Ваш процент попадания для 2 круга: <span id="result2"></span></div>
+<p>
+<progress id="progress3" value="0" max="100"></progress>
+<div>Ваш процент попадания для 3 круга: <span id="result3"></span></div>
+    <p>
+<button id="startButton">Начать</button>
+<div id="result"></div>
+<div>
+</div>
+<p>
+<canvas id="canvas" width="1200" height="360"></canvas>
+<script src="js/movingObjHard.js"></script>
+</body>
+</html>
