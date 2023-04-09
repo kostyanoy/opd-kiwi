@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/squareTest.css">
+    <button class="back-button" onclick="location.href='testPage.html'">Назад</button>
+    <title>Тест на цвет</title>
+</head>
+
+<body>
+    <h1>Тест на цвет</h1>
+    <button class="instructions-button" onclick="openModalW()">Инструкция</button>
+    <p>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModalW()">&times</span>
+            <h2>Инструкция</h2>
+            <p>
+                Для начала теста, нажмите кнопку "Начать тест". <br>
+                Начнут появляться квадраты разных цветов. <br>
+                Вам надо как можно быстрее нажимать соответствующую им кнопку, когда вы увидите, что какой-то квадрат сменил цвет. <br>
+                Нажимайте кнопки "1", "2", "3" соответственно.
+            </p>
+        </div>
+    </div>
+    <p>Нажимайте "1", "2" или "3", когда квадрат сменит цвет!</p>
+    <div class="test" id="test">
+        <div class="field">
+            <div class="square">1</div>
+            <div class="square">2</div>
+            <div class="square">3</div>
+        </div>
+
+        <button class="btn start">Начать тест</button>
+        <div class="result">Здесь будет отображен результат</div>
+    </div>
+
+    <form id="sendForm">
+        <input type="hidden" name="test_name" id="test_name" value="Цвет">
+        <input type="hidden" name="avg_time" id="avg_time">
+        <input type="hidden" name="total_time" id="total_time">
+        <input type="hidden" name="correct" id="correct">
+        <input type="hidden" name="misses" id="misses">
+        <input id="submit-button" type="submit" value="Submit" style="display: none;">
+    </form>
+
+    <script src="js/sendTestResult.js"></script>
+    <script src="js/squareBase.js"></script>
+    <script src="js/squareColor.js"></script>
+    <script src="js/modalWindowController.js"></script>
+</body>
+
+</html>
