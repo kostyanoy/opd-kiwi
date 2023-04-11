@@ -141,6 +141,17 @@ function thirdCircle() {
     showResult3();
 }
 
+function showOverallResult() {
+    const averageAccuracy = ((theResult1 + theResult2 + theResult3) / 90).toFixed(0);
+    document.getElementById('result').innerText = `Ваша средняя точность: ${averageAccuracy}%`;
+    startButton.style.display = 'block';
+    startButton.disabled = false;
+    //sendForm
+    document.getElementById("avg_time").value = averageAccuracy;
+    document.getElementById("submit-button").click();
+    //sendForm
+}
+
 function showResult1() {
     const averageDistance1 = totalDistance1;
     totalDistance1 = 0;
@@ -155,14 +166,10 @@ function showResult1() {
     const averageAccuracy1 = totalAccuracy1 / totalAttempts1;
     document.getElementById('result1').innerText = `${accuracy.toFixed(0)}%`;
     if (count1 == 10 && count2 == 10 && count3 == 10){
-        theAnswer = ((theResult1 + theResult2 + theResult3) / 90).toFixed(0)
-        document.getElementById('result1').innerText = `${averageAccuracy1.toFixed(0)}%`
-        document.getElementById('result').innerText = `Ваша средняя точность: ${theAnswer}%`;
-        startButton.style.display = 'block';
-        startButton.disabled = false;
+        showOverallResult();
+        document.getElementById('result1').innerText = `${averageAccuracy1.toFixed(0)}%`;
     }
 }
-
 
 function showResult2() {
     const averageDistance2 = totalDistance2;
@@ -178,11 +185,8 @@ function showResult2() {
     const averageAccuracy2 = totalAccuracy2 / totalAttempts2;
     document.getElementById('result2').innerText = `${accuracy.toFixed(0)}%`;
     if (count1 == 10 && count2 == 10 && count3 == 10){
-        theAnswer = ((theResult1 + theResult2 + theResult3) / 90).toFixed(0)
-        document.getElementById('result2').innerText = `${averageAccuracy2.toFixed(0)}%`
-        document.getElementById('result').innerText = `Ваш средний процент попадания: ${theAnswer}%`;
-        startButton.style.display = 'block';
-        startButton.disabled = false;
+        showOverallResult();
+        document.getElementById('result2').innerText = `${averageAccuracy2.toFixed(0)}%`;
     }
 }
 
@@ -200,11 +204,8 @@ function showResult3() {
     const averageAccuracy3 = totalAccuracy3 / totalAttempts3;
     document.getElementById('result3').innerText = `${accuracy.toFixed(0)}%`;
     if (count1 == 10 && count2 == 10 && count3 == 10){
-        theAnswer = ((theResult1 + theResult2 + theResult3) / 90).toFixed(0)
-        document.getElementById('result3').innerText = `${averageAccuracy3.toFixed(0)}%`
-        document.getElementById('result').innerText = `Ваш средний процент попадания: ${theAnswer}%`;
-        startButton.style.display = 'block';
-        startButton.disabled = false;
+        showOverallResult();
+        document.getElementById('result3').innerText = `${averageAccuracy3.toFixed(0)}%`;
     }
 }
 function loop() {

@@ -77,6 +77,10 @@ function showResult() {
         resultDiv.innerText = `Ваш средний процент попадания: ${answer}%`;
         startButton.style.display = 'block';
         startButton.disabled = false;
+        //sendForm
+        document.getElementById("avg_time").value = answer;
+        document.getElementById("submit-button").click();
+        //sendForm
     }
 }
 
