@@ -19,7 +19,9 @@
     <div class="modal-content">
         <span class="close" onclick="closeModalW()">&times</span>
         <h2>Инструкция</h2>
-        <p>Для начала теста, нажмите кнопку "Начать". Нажимайте на цифры: (1-первый круг, 2-второй круг, 3-третий круг), когда точки будут находиться внутри круов. После 10 попыток тест завершится(для каждого круга), и вы увидите ваш средний процент попадания в круги. Вы
+        <p>Для начала теста, нажмите кнопку "Начать". Нажимайте на цифры: (1-первый круг, 2-второй круг, 3-третий круг),
+            когда точки будут находиться внутри круов. После 10 попыток тест завершится(для каждого круга), и вы увидите
+            ваш средний процент попадания в круги. Вы
             можете повторить тест несколько раз, чтобы улучшить свой результат.</p>
     </div>
 </div>
@@ -28,18 +30,19 @@
 <p>
 <div>Ваш процент попадания для 1 круга: <span id="result1"></span></div>
 <p>
-<progress id="progress2" value="0" max="100"></progress>
+    <progress id="progress2" value="0" max="100"></progress>
 <div>Ваш процент попадания для 2 круга: <span id="result2"></span></div>
 <p>
-<progress id="progress3" value="0" max="100"></progress>
+    <progress id="progress3" value="0" max="100"></progress>
 <div>Ваш процент попадания для 3 круга: <span id="result3"></span></div>
-    <p>
-<button id="startButton">Начать</button>
+<p>
+    <button id="startButton">Начать</button>
 <div id="result"></div>
 <div>
 </div>
 <p>
-<canvas id="canvas" width="1200" height="360"></canvas>
-<script src="js/movingObjHard.js"></script>
+    <canvas id="canvas" width="1200" height="360"></canvas>
+    <script src="js/movingObjHard.js"></script>
+    <script src="js/modalWindowController.js"></script>
 </body>
 </html>

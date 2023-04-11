@@ -105,16 +105,17 @@ function drawFixedPoint() {
 }
 
 function updatePointPosition() {
-    const angle1 = performance.now() / 1000;
-    const angle2 = performance.now() / 1000;
-    const angle3 = performance.now() / 1000;
+    const angle1 = performance.now() / 500;
     point1.x = circleX1 + Math.cos(angle1) * circleRadius;
     point1.y = circleY1 + Math.sin(angle1) * circleRadius;
+    const angle2 = performance.now() / 1000;
     point2.x = circleX2 + Math.cos(angle2) * circleRadius;
     point2.y = circleY2 + Math.sin(angle2) * circleRadius;
+    const angle3 = performance.now() / 2000;
     point3.x = circleX3 + Math.cos(angle3) * circleRadius;
     point3.y = circleY3 + Math.sin(angle3) * circleRadius;
 }
+
 
 function firstCircle() {
     const distance = Math.sqrt((point1.x - fixedPointX1) ** 2 + (point1.y - fixedPointY1) ** 2);
@@ -157,6 +158,7 @@ function showResult1() {
         theAnswer = ((theResult1 + theResult2 + theResult3) / 90).toFixed(0)
         document.getElementById('result1').innerText = `${averageAccuracy1.toFixed(0)}%`
         document.getElementById('result').innerText = `Ваша средняя точность: ${theAnswer}%`;
+        startButton.style.display = 'block';
         startButton.disabled = false;
     }
 }
@@ -179,6 +181,7 @@ function showResult2() {
         theAnswer = ((theResult1 + theResult2 + theResult3) / 90).toFixed(0)
         document.getElementById('result2').innerText = `${averageAccuracy2.toFixed(0)}%`
         document.getElementById('result').innerText = `Ваш средний процент попадания: ${theAnswer}%`;
+        startButton.style.display = 'block';
         startButton.disabled = false;
     }
 }
@@ -200,6 +203,7 @@ function showResult3() {
         theAnswer = ((theResult1 + theResult2 + theResult3) / 90).toFixed(0)
         document.getElementById('result3').innerText = `${averageAccuracy3.toFixed(0)}%`
         document.getElementById('result').innerText = `Ваш средний процент попадания: ${theAnswer}%`;
+        startButton.style.display = 'block';
         startButton.disabled = false;
     }
 }
@@ -218,6 +222,7 @@ calculateFixedPoint();
 loop();
 
 startButton.addEventListener("click", function() {
+    startButton.style.display = 'none';
     startButton.disabled = true;
     count = 0;
     theResult = 0;
@@ -254,18 +259,3 @@ document.addEventListener('keydown', (event) => {
         thirdCircle();
     }
 });
-function openModalW() {
-    document.getElementById("modal").style.display = "block";
-}
-
-function closeModalW() {
-    document.getElementById("modal").style.display = "none";
-}
-
-window.onclick = function (event) {
-    const modal = document.getElementById("modal");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-}
-

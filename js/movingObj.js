@@ -75,9 +75,11 @@ function showResult() {
     if (count == 10) {
         answer = (result / 10).toFixed(0)
         resultDiv.innerText = `Ваш средний процент попадания: ${answer}%`;
+        startButton.style.display = 'block';
         startButton.disabled = false;
     }
 }
+
 
 function loop() {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -92,13 +94,17 @@ calculateFixedPoint();
 loop();
 
 startButton.addEventListener("click", function () {
+    startButton.style.display = 'none';
     startButton.disabled = true;
     count = 0;
     result = 0;
     const resultDivs = document.querySelectorAll('#result + div');
     resultDivs.forEach(div => div.remove());
     document.getElementById('result').innerText = '';
+    calculateFixedPoint();
+    loop();
 });
+
 
 
 document.addEventListener('keydown', (event) => {
@@ -106,19 +112,3 @@ document.addEventListener('keydown', (event) => {
         spacePress();
     }
 });
-
-function openModalW() {
-    document.getElementById("modal").style.display = "block";
-}
-
-function closeModalW() {
-    document.getElementById("modal").style.display = "none";
-}
-
-window.onclick = function (event) {
-    const modal = document.getElementById("modal");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-}
-

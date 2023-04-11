@@ -25,13 +25,12 @@ body {
     margin-top: 10px;
     font-size: 20px;
 }
-
-.startButton {
+#startButton {
     display: block;
     margin: 0 auto;
     text-align: center;}
 
-button.startButton,
+button#startButton,
 button.instructions-button{
     background-color: rgb(220, 125, 36);
     color: white;
@@ -43,7 +42,7 @@ button.instructions-button{
     border-radius: 40px;
 }
 
-button.startButton:hover,
+button#startButton:hover,
 button.instructions-button:hover, button.back-button:hover{
     background-color: rgba(217, 145, 84, 0.84);
 }
