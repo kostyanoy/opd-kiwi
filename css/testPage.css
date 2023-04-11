@@ -61,6 +61,12 @@ button:hover{
 .custom-button-movement-hard{
     width: 150px;
 }
+.custom-button-tracking{
+    width: 260px;
+}
+.custom-button-tracking-stalking{
+    width: 300px;
+}
 .wrapper {
 	position: relative;
 	min-height: 100%;
