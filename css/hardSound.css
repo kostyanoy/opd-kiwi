@@ -23,7 +23,7 @@ body {
     color: white;
     text-align: center;
 }
-button.even, button.odd, button.start, button.instructions-button{
+ button.instructions-button{
     background-color: rgb(220, 125, 36);
     color: white;
     border: none;
@@ -70,5 +70,18 @@ button.even:hover, button.odd:hover, button.start:hover, button.back-button:hove
     text-decoration: none;
     cursor: pointer;
 }
+progress {
+    width: 200px;
+    height: 20px;
+    background-color: rgba(26, 188, 156, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-value {
+    background-color: #1abc9c;
+    border-radius: 10px;
+}
+
 
 

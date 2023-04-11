@@ -27,6 +27,10 @@
                 можете повторить тест несколько раз, чтобы улучшить свой результат.</p>
         </div>
     </div>
+    <p>Сложите числа и выберите результат. </p>
+    <progress id="progress" value="0" max="100"></progress>
+    </div>
+    <p>
     <button class="start" onclick="startTest()">Начать</button>
     <p>
     <div id="question"></div>
@@ -35,7 +39,9 @@
     <p>
     <div id="result"></div>
     <p>
-    <div id="average"></div>
+    <div id="averageGood"></div>
+    <p>
+    <div id="averageBad"></div>
     <audio id="audio"></audio>
 
     <form id="sendForm">
@@ -49,6 +55,8 @@
 
     <script src="js/sendTestResult.js"></script>
     <script src="js/evenOddTest.js"></script>
+    <script src="js/modalWindowController.js"></script>
+
 </body>
 
 </html>

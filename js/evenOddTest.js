@@ -1,15 +1,17 @@
 const min = 10;
 const max = 99;
-const average = document.getElementById("average");
+const averageGood = document.getElementById("averageGood");
+const averageBad = document.getElementById("averageBad");
 const resultDiv = document.getElementById("result");
 let startTime;
 let a;
 let b;
 let attempts = 0;
-const maxAttempts = 5;
+const maxAttempts = 10;
 let totalReactionTime = 0;
-let averageReactionTime;
-//name = 'Оценка скорости реакции на сложение в уме(текст)'
+let totalReactionTimeBad = 0;
+let averageReactionTimeGood;
+let averageReactionTimeBad;
 function generateNumbers() {
     a = Math.floor(Math.random() * (max - min + 1)) + min;
     b = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -17,8 +19,16 @@ function generateNumbers() {
 }
 
 function startTest() {
-    document.querySelector(".start").style.display = "none"
+    document.querySelector(".start").style.display = "none";
+    document.getElementById("progress").value = attempts;
+    if (attempts === maxAttempts) {
+        attempts = 0;
+        totalReactionTime = 0;
+        averageReactionTimeGood.innerText = "";
+        averageReactionTimeBad.innerText = "";
+    }
     attempts++;
+    progress.value = ((attempts / 10).toFixed(2) * 100).toFixed(0);
     if (attempts > maxAttempts) {
         return;
     }
@@ -29,42 +39,34 @@ function startTest() {
 }
 
 function checkAnswer(answer) {
-    let wrong = 0;
     let time = performance.now() - startTime;
     if ((answer === "четное" && (a + b) % 2 === 0) || (answer === "нечетное" && (a + b) % 2 !== 0)) {
         resultDiv.innerText = `Ваше время реакции: ${(time).toFixed(2)} миллисекунд.`;
-        document.querySelector(".start").style.display = "block";
         totalReactionTime += time;
     } else {
         resultDiv.innerText = "Ошибочка(";
         wrong++;
+        totalReactionTimeBad += time;
     }
-    averageReactionTime = totalReactionTime / (attempts - wrong);
+    answers++
+    averageReactionTimeBad = totalReactionTimeBad / wrong;
+    averageReactionTimeGood = totalReactionTime / (attempts - wrong);
     if (attempts === maxAttempts) {
-        average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(2)} миллисекунд.`;
+        averageGood.innerText += ` Среднее время реакции(правильные ответы): ${averageReactionTimeBad.toFixed(2)} миллисекунд.`;
+        averageBad.innerText += ` Среднее время реакции(неправильные ответы): ${averageReactionTimeGood.toFixed(2)} миллисекунд.`;
+        document.querySelector(".start").style.display = "block";
 
         //sendForm
-        //document.getElementById("test_name").value = name;
         document.getElementById("avg_time").value = averageReactionTime.toFixed(2);
         document.getElementById("total_time").value = totalReactionTime.toFixed(2);
         document.getElementById("correct").value = maxAttempts - wrong;
         document.getElementById("misses").value = wrong;
         document.getElementById("submit-button").click();
+
         //sendForm
     }
-}
-
-function openModalW() {
-    document.getElementById("modal").style.display = "block";
-}
-
-function closeModalW() {
-    document.getElementById("modal").style.display = "none";
-}
-
-window.onclick = function (event) {
-    const modal = document.getElementById("modal");
-    if (event.target === modal) {
-        modal.style.display = "none";
+    else {
+        setTimeout(startTest, 2000);
     }
 }
+

@@ -1,19 +1,27 @@
 const delay = 1500;
 let timerId;
 let attempts = 0;
-const maxAttempts = 5;
+const maxAttempts = 10;
 let totalReactionTime = 0;
 let averageReactionTime;
-//name= "Оценка скорости реакции на звук"
+
 
 function startTest() {
-    document.querySelector(".start").style.display = "none"
+    document.querySelector(".start").style.display = "none";
+    if (attempts === maxAttempts) {
+        attempts = 0;
+        totalReactionTime = 0;
+        averageReactionTime = 0;
+        average.innerText = "";
+    }
     attempts++;
+    progress.value = ((attempts / 10).toFixed(2) * 100).toFixed(0);
     if (attempts > maxAttempts) {
         return;
     }
     timerId = setTimeout(playSound, delay);
 }
+
 
 function playSound() {
     const audio = new Audio('audio/sound1.mp3');
@@ -22,7 +30,6 @@ function playSound() {
     const listener = function (event) {
         const reactionTime = Date.now() - reactionStartTime;
         document.getElementById("reactionTime").innerHTML = `Ваше время реакции: ${reactionTime} миллисекунд`;
-        document.querySelector(".start").style.display = "block";
         totalReactionTime += reactionTime;
         averageReactionTime = totalReactionTime / attempts;
         document.removeEventListener('keydown', listener);
@@ -31,26 +38,15 @@ function playSound() {
     if (attempts === maxAttempts) {
         average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(2)} миллисекунд.`;
 
+        document.querySelector(".start").style.display = "block";
+
         //sendForm
-        //document.getElementById("test_name").value = name;
         document.getElementById("total_time").value = totalReactionTime.toFixed(2);
         document.getElementById("avg_time").value = averageReactionTime.toFixed(2);
         document.getElementById("submit-button").click();
         //sendForm
     }
-}
-
-function openModalW() {
-    document.getElementById("modal").style.display = "block";
-}
-
-function closeModalW() {
-    document.getElementById("modal").style.display = "none";
-}
-
-window.onclick = function (event) {
-    const modal = document.getElementById("modal");
-    if (event.target === modal) {
-        modal.style.display = "none";
+    else {
+        setTimeout(startTest, 2000);
     }
 }
