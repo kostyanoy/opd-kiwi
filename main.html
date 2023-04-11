@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Проект kiwi-Team</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <img
+          src="images/kiwi-vector.png"
+          alt="Logo"
+          style="float: left; height: 60px; margin-left: 20px; margin-top: 10px;"
+        />
+        <div style="float: right; margin-right: 20px;">
+        <img
+            src="images/user-icon.png"
+            alt="Account Logo"
+            style="height: 60px; padding-top: 10px;"
+            onclick="toggleMenu()"
+          />
+          
+          <div id="menu" style="display: none;">
+            <ul>
+              <li><a href="#">Войти</a></li>
+              <li><a href="#">Зарегистрироваться</a></li>
+              <li><a href="#">Выйти</a></li>
+              <li><a href="#">Профиль</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main id="content" style="text-align: center;">
+        <h1>Проект Kiwi-Team</h1>
+        <button onclick="location.href='testPage.html'" target="_self" class="custom-button">Выбрать тест</button>
+        <button onclick="location.href='professions.html'" target="_self">Теоретическая информация</button>
+        <button onclick="location.href='php/experts.php'" target="_self">Эксперты</button>
+      </main>
+
+      <footer>
+        <p><b>@KIWI-team</b></p>
+      </footer>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        var menu = document.getElementById("menu");
+        if (menu.style.display === "none") {
+          menu.style.display = "block";
+        } else {
+          menu.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
