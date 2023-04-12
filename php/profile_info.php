@@ -1,4 +1,5 @@
 <?php 
+// text on a page
 $profile = [
     [
         "english" => "login",
@@ -22,7 +23,9 @@ $profile = [
     ],
 ];
 
+// name_of_test => [db_column, name_of_columns]
 $tests = [
+    // basic columns
     "other" => [
         [
             "english" => "avg_time",
@@ -44,6 +47,18 @@ $tests = [
             "english" => "date",
             "russian" => "Дата",
         ],        
+    ],
+    "Точность реакции (простая)" => [
+        [
+            "english" => "avg_time",
+            "russian" => "Средняя точность",
+        ],
+    ],
+    "Точность реакции (сложная)" => [
+        [
+            "english" => "avg_time",
+            "russian" => "Средняя точность",
+        ],
     ],
 ];
 ?>

@@ -27,5 +27,5 @@ $stmt->close();
 $_SESSION["user_id"] = $user["id"];
 $_SESSION["status"] = $user["status"];
 
-header('Location: /index.html');
+header('Location: /');
 ?>
