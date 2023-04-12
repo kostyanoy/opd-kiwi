@@ -1,6 +1,6 @@
 class LightReaction extends SquareBase {
-	constructor(squares, startButton, resultLabel, amount = 10) {
-		super(squares, startButton, resultLabel, amount)
+	constructor(squares, startButton, resultLabel, progressBar, amount = 10) {
+		super(squares, startButton, resultLabel, progressBar, amount)
 		this.results = [
 			new Result(0, 300, "У вас отличная простая реакция!"),
 			new Result(300, 400, "У вас хорошая простая реакция!"),
@@ -57,5 +57,6 @@ class LightReaction extends SquareBase {
 const t = new LightReaction(
     document.querySelectorAll("#test .field .square"),
     document.querySelector("#test .btn"),
-    document.querySelector("#test .result")
+    document.querySelector("#test .result"),
+	document.getElementById("progress")
 )

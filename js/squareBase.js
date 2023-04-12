@@ -43,10 +43,11 @@ class Result {
 }
 
 class SquareBase {
-    constructor(squares, startButton, resultLabel, amount) {
+    constructor(squares, startButton, resultLabel, progressBar, amount) {
         this.squares = squares
         this.startButton = startButton
         this.resultLabel = resultLabel
+        this.progressBar = progressBar
         this.amount = amount
         
         this.baseColor = squares[0].style.backgroundColor
@@ -80,6 +81,7 @@ class SquareBase {
         this.isActive = false
         this.time = performance.now()
         this.reactionTimes = []
+        this.progressBar.value = 0
 
         this.resetColors()
     }
@@ -127,6 +129,7 @@ class SquareBase {
 			this.addReactionTime(performance.now() - this.time)
 		}
         this.setLabel(this.getMessage())
+        this.progressBar.value = Math.round((this.num / this.amount) * 100)
 	}
 
     end(time) {
