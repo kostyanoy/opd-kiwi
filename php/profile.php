@@ -57,13 +57,14 @@ $row = $test_results->fetch_array();
 
             </div>
         </div>
-        <a class="return-btn" href="/">Return to Main Page</a>
+        <a class="return-btn" href="/">Вернуться на главную</a>
         <div class="test-results">
             <h2>Результаты тестов</h2>
             <!-- show test results in different tables -->
             <?php
             while ($row) {
                 $cur_test = $tests["other"];
+                echo $row["name"];
                 if (key_exists($row["name"], $tests)){
                     $cur_test = $tests[$row["name"]];
                 }
