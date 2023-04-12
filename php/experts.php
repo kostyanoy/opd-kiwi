@@ -27,7 +27,7 @@
             }
             ?>
         </div>
-        <a href="/index.html" class="back-button">Назад</a>
+        <a href="/" class="back-button">Назад</a>
     </div>
 </body>
 

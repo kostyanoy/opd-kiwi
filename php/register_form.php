@@ -57,7 +57,7 @@
     </form>
     <div class="button-container">
         <a href="login_form.php" class="button">Вход</a>
-        <a href="/index.html" class="button">На главную</a>
+        <a href="/" class="button">На главную</a>
     </div>
 
 </body>
