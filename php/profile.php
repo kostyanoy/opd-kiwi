@@ -64,7 +64,6 @@ $row = $test_results->fetch_array();
             <?php
             while ($row) {
                 $cur_test = $tests["other"];
-                echo $row["name"];
                 if (key_exists($row["name"], $tests)){
                     $cur_test = $tests[$row["name"]];
                 }
