@@ -10,16 +10,46 @@
 <body>
     <div class="wrapper">
 
-        <div class="header">
         <header>
-            <h1>Тесты</h1>
-            <button class="custom-button3" onclick="location.href='index.html'">Назад</button>
-        </header>
-        </div>
+            <a href="main.html">
+            <img
+              src="images/kiwi-vector.png"
+              alt="Logo"
+              style="float: left; height: 60px; margin-left: 20px; margin-top: 10px;"
+              href="main.html"
+            /></a>
+            
+            <div style="float: right; margin-right: 20px;">
+            <img
+                src="images/user-icon.png"
+                alt="Account Logo"
+                style="height: 60px; padding-top: 10px;"
+                onclick="toggleMenu()"
+              />
+
+              
+              <div id="menu" style="display: none;">
+                <ul>
+                  <li><a href="auth.html">
+                    Вход</a></li>
+                  <li><a href="php/profile.php">Профиль</a></li>
+                </ul>
+              </div>
+            </div>
+          </header>
+          <script>
+            function toggleMenu() {
+              var menu = document.getElementById("menu");
+              if (menu.style.display === "none") {
+                menu.style.display = "block";
+              } else {
+                menu.style.display = "none";
+              }
+            }
+          </script>
 
         <div class="content">
-            <h3>Выберите тест:</h3>
-            <p class="test-group">Тест на профессиональноо важные качества</p>
+            <p class="test-group">Тест на профессионально важные качества</p>
             <div class="test">
                 <p><form action="test.html" target="_self"><button class="custom-button-PVK-test">Кто ты из IT?</button></form></p>
             </div>
@@ -51,11 +81,9 @@
             </div>
         </div>
 
-        <div class="footer">
-            <footer>
-                <p> @ KIWI-team
-            </footer>
-        </div>
+       <footer>
+    <p><b>@KIWI-team</b></p>
+  </footer>
 </div>
 </body>
 </html>
