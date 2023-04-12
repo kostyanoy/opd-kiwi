@@ -1,32 +1,27 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тесты</title>
+<html lang="en">
     <link rel="stylesheet" href="css/testPage.css">
+<head>
+	<meta charset="UTF-8">
+	<title>Выбор тестов</title>
 </head>
 <body>
-    <div class="wrapper">
-
-        <header>
-            <a href="main.html">
+	<header>
+        <a href="main.html">
             <img
               src="images/kiwi-vector.png"
               alt="Logo"
               style="float: left; height: 60px; margin-left: 20px; margin-top: 10px;"
-              href="main.html"
-            /></a>
-            
+            />
+        </a>
             <div style="float: right; margin-right: 20px;">
+            
             <img
                 src="images/user-icon.png"
                 alt="Account Logo"
                 style="height: 60px; padding-top: 10px;"
                 onclick="toggleMenu()"
               />
-
               
               <div id="menu" style="display: none;">
                 <ul>
@@ -47,43 +42,83 @@
               }
             }
           </script>
+	</header>
 
-        <div class="content">
-            <p class="test-group">Тест на профессионально важные качества</p>
-            <div class="test">
-                <p><form action="test.html" target="_self"><button class="custom-button-PVK-test">Кто ты из IT?</button></form></p>
-            </div>
-            <p class="test-group">Простая сенсомоторная реакиця:</p>
-            <div class="test">
-                <p><form action="sound.html" target="_self"><button class="custom-button-easy-sound">Звук</button></form></p>
-                <p><form action="squaresLight.html" target="_self"><button class="custom-button-easy-color">Свет</button></form></p>
-            </div>
-                
-            <p class="test-group">Сложная сенсомотрная реакция:</p>
-            <div class="test">
-                <p><form action="squaresColor.html" target="_self"><button class="custom-button-hard-color">Цветовой тест</button></form></p>
-                <p><form action="hardSound.html" target="_self"><button class="custom-button-hard-math-sound">Сложение в уме (звук)</button></form></p>
-                <p><form action="evenOddTest.html" target="_self"><button class="custom-button-hard-math-picture">Сложение в уме (картинка)</button></form></p>
-            </div>
-            <p class="test-group">Реакция на движущийся объект:</p>
-            <div class="test">
-                <p><form action="movingObj.html" target="_self"><button class="custom-button-movement-easy">Простая реакция</button></form></p>
-                <p><form action="movingObjHard.html" target="_self"><button class="custom-button-movement-hard">Сложная реакция</button></form></p>
-            </div>
-            <p class="test-group">Память:</p>
-            <div class="test">
-                <p><form action="squaresMemory.html" target="_self"><button class="custom-button-movement-easy">Простая реакция</button></form></p>
-            </div>
-            <p class="test-group">Оценка слежения:</p>
-            <div class="test">
-                <p><form action="analogSum.html" target="_self"><button class="custom-button-tracking">Оценка аналогового слежения</button></form></p>
-                <p><form action="analogSum.html" target="_self"><button class="custom-button-tracking-stalking">Оценка слежения с преследованием</button></form></p>
-            </div>
-        </div>
+	<main>
+		<div class="test-box">
+			<div class="test-title">Кто ты из IT</div>
+			<div class="test-icon">👩‍💻</div>
+			<a href="test.html" class="test-button">Пройти</a>
+		</div>
 
-       <footer>
-    <p><b>@KIWI-team</b></p>
-  </footer>
-</div>
+		<div class="test-box">
+			<div class="test-title">Реакция звук</div>
+			<div class="test-icon">🎵</div>
+			<a href="sound.html" class="test-button">Пройти</a>
+		</div>
+
+		<div class="test-box">
+			<div class="test-title">Реакция свет</div>
+			<div class="test-icon">💡</div>
+			<a href="squaresLight.html" class="test-button">Пройти</a>
+		</div>
+
+		<div class="test-box">
+			<div class="test-title">Реакция цвет</div>
+			<div class="test-icon">🎨</div>
+			<a href="squaresColor.html" class="test-button">Пройти</a>
+		</div>
+
+		<div class="test-box">
+			<div class="test-title">Сложение в уме</div>
+			<div class="test-icon">🧮</div>
+			<a href="evenOddTest.html" class="test-button">Пройти</a>
+		</div>
+
+		<div class="test-box">
+			<div class="test-title">Сложение в уме</div>
+			<div class="test-icon">🎵</div>
+			<a href="hardSound.html" class="test-button">Пройти</a>
+		</div>
+
+        <div class="test-box">
+			<div class="test-title">Слежение</div>
+			<div class="test-icon">👀</div>
+			<a href="movingObj.html" class="test-button">Пройти</a>
+		</div>
+
+		<div class="test-box">
+			<div class="test-title">Преследование</div>
+			<div class="test-icon">🚓</div>
+			<a href="movingObjHard.html" class="test-button">Пройти</a>
+		</div>
+
+		<div class="test-box">
+			<div class="test-title">Память</div>
+			<div class="test-icon">🧠</div>
+			<a href="squaresMemory.html" class="test-button">Пройти</a>
+		</div>
+
+		<div class="test-box">
+			<div class="test-title">Тест ???</div>
+			<div class="test-icon">❓</div>
+			<a href="#" class="test-button">Пройти</a>
+		</div>
+
+		<div class="test-box">
+			<div class="test-title">Тест ???</div>
+			<div class="test-icon">❓</div>
+			<a href="#" class="test-button">Пройти</a>
+		</div>
+
+		<div class="test-box">
+			<div class="test-title">Тест ???</div>
+			<div class="test-icon">❓</div>
+			<a href="#" class="test-button">Пройти</a>
+		</div>
+	</main>
+    <footer>
+        <p><b>@KIWI-team</b></p>
+      </footer>
 </body>
 </html>

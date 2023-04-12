@@ -1,0 +1,43 @@
+<header>
+  <a href="main.html">
+    <img
+      src="images/kiwi-vector.png"
+      alt="Logo"
+      style="float: left; height: 60px; margin-left: 20px; margin-top: 10px;"
+    />
+  </a>
+    <div style="float: right; margin-right: 20px;">
+    <img
+        src="images/user-icon.png"
+        alt="Account Logo"
+        style="height: 60px; padding-top: 10px;"
+        onclick="toggleMenu()"
+      />
+      
+      <div id="menu" style="display: none;">
+        <ul>
+          <li><a href="auth.html">
+            Вход</a></li>
+          <li><a href="php/profile.php">Профиль</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      if (menu.style.display === "none") {
+        menu.style.display = "block";
+      } else {
+        menu.style.display = "none";
+      }
+    }
+  </script>
+
+
+<!--header{
+    width: 100%;
+    height: 80px;
+    background-color: rgba(45, 45, 100, 0.45);
+    padding: 10px;
+  }-->
