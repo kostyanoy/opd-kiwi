@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/analogPurs.css">
+    <button class="back-button" onclick="location.href='testPage.html'">Назад</button>
+    <title>Document</title>
+</head>
+<body>
+<h1>Аналоговое преследование</h1>
+<button class="instructions-button" onclick="openModalW()">Инструкция</button>
+<p></p>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalW()">&times;</span>
+        <h2>Инструкция</h2>
+        <p>Нажмите на кнопку "Начать".Красный шарик начнет двигаться по экрану влево и вправо. Ваша задача - управлять синим шариком с помощью клавиш "влево" и "вправо", чтобы держать его как можно ближе к красному шарику.</p>
+    </div>
+</div>
+<p>Управляйте синим шариком с помощью клавиш "влево" и "вправо". </p>
+<progress id="progress" value="0" max="30"></progress>
+<div id="container">
+    <div id="ball1"></div>
+    <div id="ball2"></div>
+</div>
+<button id="startButton">Начать</button>
+<P>
+<div id="reaction"></div>
+<div id="score"></div>
+<script src="js/sendTestResult.js"></script>
+<script src="js/analogPurs.js"></script>
+<script src="js/modalWindowController.js"></script>
+</body>
+</html>
