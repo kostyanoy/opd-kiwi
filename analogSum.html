@@ -9,28 +9,32 @@
     <button class="back-button" onclick="location.href='testPage.html'">Назад</button>
     <title>Document</title>
 </head>
-<meta charset="UTF-8">
-</head>
 <body>
-<h1>---</h1>
+<h1>Аналоговое слежение</h1>
 <button class="instructions-button" onclick="openModalW()">Инструкция</button>
-<p>
+<p></p>
 <div id="modal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModalW()">&times</span>
+        <span class="close" onclick="closeModalW()">&times;</span>
         <h2>Инструкция</h2>
-        <p>---</p>
+        <p>Нажмите кнопку "Начать".Красный шарик начнет двигаться по экрану влево и вправо. Ваша задача - при помощи кнопок "вправо" и "влево" удерживать шарик, как можно ближе к средней границе.</p>
     </div>
 </div>
-<canvas id="canvas" width="600" height="400"></canvas>
-<br>
-<button id="startBtn">Начать</button>
-<p>Результаты:</p>
-<ul id="resultsList"></ul>
+<p>Управляйте красным шариком с помощью клавиш "влево" и "вправо", не давая ему отлететь от средней границы. </p>
+<progress id="progress" value="0" max="30"></progress>
+<p>
+<div id="container">
+    <div id="ball"></div>
+    <div id="mark"></div>
+</div>
+
+<button id="startButton">Начать</button>
+<P>
+<div id="reaction"></div>
+<p>
+<div id="score"></div>
+<script src="js/sendTestResult.js"></script>
 <script src="js/analogSum.js"></script>
+<script src="js/modalWindowController.js"></script>
 </body>
 </html>
-
-
-
-
