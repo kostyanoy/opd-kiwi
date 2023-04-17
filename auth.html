@@ -8,6 +8,33 @@
     <title>Аутентификация</title>
 </head>
 <body>
+    <header>
+        <a href="main.html">
+          <img
+            src="images/kiwi-vector.png"
+            alt="Logo"
+            style="float: left; height: 60px; margin-left: 20px; margin-top: 10px;"
+          />
+        </a>
+          <div style="float: right; margin-right: 20px;">
+          <img
+              src="images/user-icon.png"
+              alt="Account Logo"
+              style="height: 60px; padding-top: 10px;"
+              
+            />
+            
+            <div id="menu" style="display: none;">
+              <ul>
+                <li><a href="auth.html">
+                  Вход</a></li>
+                <li><a href="php/profile.php">Профиль</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+        
+    <main>
     <div class="button-container">
         <a href="php/register_form.php" class="button">Регистрация</a>
     </div>
@@ -17,8 +44,11 @@
     <div class="button-container">
         <a href="php/logout.php" class="button">Выход</a>
     </div>
-    <div class="button-container">
-        <a href="/index.html" class="button">На главную</a>
-    </div>
+    
+    </main>
+    <footer>
+        <p><b>@KIWI-team</b></p>
+      </footer>
+    
 </body>
 </html>

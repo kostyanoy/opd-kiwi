@@ -1,6 +1,6 @@
 class ColorReaction extends SquareBase {
-	constructor(squares, startButton, resultLabel, amount = 10) {
-		super(squares, startButton, resultLabel, amount)
+	constructor(squares, startButton, resultLabel, progressBar, amount = 10) {
+		super(squares, startButton, resultLabel, progressBar, amount)
 		this.results = [
 			new Result(9, 1000, "У вас отличная сложная реакция!"),
 			new Result(7, 9, "У вас хорошая сложная реакция!"),
@@ -64,5 +64,6 @@ class ColorReaction extends SquareBase {
 const t = new ColorReaction(
 	document.querySelectorAll("#test .field .square"),
 	document.querySelector("#test .btn"),
-	document.querySelector("#test .result")
+	document.querySelector("#test .result"),
+	document.getElementById("progress")
 )

@@ -1,6 +1,6 @@
 /* Set the background color of the body to a light blue */
 body {
-  background-color: #C6D9EB;
+  background-color: rgba(59, 59, 120, 0.594);
 }
 
 /* Style the container for the profile and test results */

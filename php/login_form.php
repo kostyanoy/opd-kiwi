@@ -14,7 +14,7 @@
     include_once("boot.php");
 
     if (is_auth()){
-        header('Location: ../index.html');
+        header('Location: /');
     }
 
     try {
@@ -38,7 +38,7 @@
     </form>
     <div class="button-container">
         <a href="register_form.php" class="button">Регистрация</a>
-        <a href="/index.html" class="button">На главную</a>
+        <a href="/" class="button">На главную</a>
     </div>
 </body>
 
