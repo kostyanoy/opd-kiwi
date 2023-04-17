@@ -1,170 +1,113 @@
-const CANVAS_WIDTH = canvas.width;
-const CANVAS_HEIGHT = canvas.height;
-const CENTER_MARK_X = CANVAS_WIDTH / 2;
-const CENTER_MARK_Y = CANVAS_HEIGHT / 2;
-const BALL_RADIUS = 20;
-const BALL_SPEED = 3;
-const MAX_ATTEMPTS = 10;
-const CORRECT_KEY_CODES = [37, 39];
-let ballX = CENTER_MARK_X;
-let ballY = CENTER_MARK_Y;
-let ballDirection = -1;
-let correctDirection = null;
-let correctKeyPressed = false;
-let reactionTime = null;
-let numOfCorrectAttempts = 0;
-let numOfAttempts = 0;
-let MAX_BALL_SPEED=0.7;
-let MIN_BALL_SPEED =0.2;
-let MAX_BALL_ACCELERATION = 0;
-let MIN_BALL_ACCELERATION = 0;
-let ballAcceleration = Math.random() * MAX_BALL_ACCELERATION + MIN_BALL_ACCELERATION;
-function init() {
-    ballAcceleration = Math.random() * MAX_BALL_ACCELERATION + MIN_BALL_ACCELERATION;
-    canvasContext = document.getElementById('canvas').getContext('2d');
-    ballX = CENTER_MARK_X;
-    ballY = CANVAS_HEIGHT / 2;
-    ballDirection = Math.random() < 0.5 ? -1 : 1;
-    correctDirection = null;
-    reactionTime = null;
-    correctKeyPressed = false;
-    numOfAttempts = 0;
-    numOfCorrectAttempts = 0;
-    isRunning = false;
-    resultsList.innerText = '';
-}
+const container = document.getElementById("container");
+const ball = document.getElementById("ball");
+const startButton = document.getElementById("startButton");
+const mark = document.createElement("div");
+mark.classList.add("mark");
+mark.style.left = (container.offsetWidth / 2 - 5) + "px";
+container.appendChild(mark);
+const reactionT = document.getElementById('reaction')
+const score = document.getElementById("score");
+let currentPosition = 0;
+let direction = "right";
+let randomDirectionInterval;
+let moveBallInterval;
+let resistance = 1;
+let numHits = 0;
+let count = 0;
+const reactionValues = [];
+const deviationValues = [];
 
+function startMovingBall() {
+    const progress = document.getElementById("progress");
+    let value = 0;
+    const intervalId = setInterval(() => {
+        value++;
+        progress.value = value;
 
-function drawBall() {
-    canvasContext.beginPath();
-    canvasContext.arc(ballX, ballY, BALL_RADIUS, 0, Math.PI*2);
-    canvasContext.fillStyle = 'blue';
-    canvasContext.fill();
-    canvasContext.closePath();
-}
-
-function drawCenterMark() {
-    canvasContext.beginPath();
-    canvasContext.moveTo(CENTER_MARK_X, 0);
-    canvasContext.lineTo(CENTER_MARK_X, CANVAS_HEIGHT);
-    canvasContext.strokeStyle = 'orange';
-    canvasContext.stroke();
-    canvasContext.closePath();
-}
-
-function draw() {
-    if (ballX < -BALL_RADIUS || ballX > CANVAS_WIDTH + BALL_RADIUS) {
-        ballX = null;
-    }
-
-    if (ballX == null) {
-        ballX = CENTER_MARK_X;
-        ballY = CANVAS_HEIGHT / 2;
-        correctDirection = null;
-        reactionTime = null;
-        correctKeyPressed = false;
-        numOfAttempts++;
-        attempts++;
-    } else {
-        if (ballX < BALL_RADIUS) {
-            ballX = BALL_RADIUS;
-        } else if (ballX > CANVAS_WIDTH - BALL_RADIUS) {
-            ballX = CANVAS_WIDTH - BALL_RADIUS;
+        if (value === 30) {
+            clearInterval(intervalId);
         }
-
-        canvasContext.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        drawCenterMark();
-        drawBall();
-
-        ballX += ballDirection * BALL_SPEED;
-
-        if (correctKeyPressed) {
-            ballDirection = Math.random() < 0.5 ? -1 : 1;
-            ballSpeed = Math.random() * MAX_BALL_SPEED + MIN_BALL_SPEED;
-            ballX = CENTER_MARK_X;
-            correctKeyPressed = false;
-            if (ballDirection === -correctDirection) {
-                numOfCorrectAttempts++;
-                resultsList.innerText += `Реакция: ${reactionTime.toFixed(2)}мс, Результат: ВЕРНО\n`;
-            } else {
-                correctDirection = ballDirection;
-                resultsList.innerText += `Реакция: ${reactionTime.toFixed(2)}мс, Результат: НЕВЕРНО\n`;
+    }, 1000);
+    startButton.style.display = "none";
+    moveBallInterval = setInterval(() => {
+        if (direction === "right") {
+            currentPosition += 10 * resistance;
+            if (currentPosition >= container.offsetWidth - ball.offsetWidth) {
+                direction = "left";
             }
-            reactionTime = null; // сброс времени для следующей попытки
-        }
-
-        if (ballX < CENTER_MARK_X - (CANVAS_WIDTH / 2) || ballX > CENTER_MARK_X + (CANVAS_WIDTH / 2)) {
-            ballDirection = -ballDirection;
-            ballX = CENTER_MARK_X + ballDirection * (CANVAS_WIDTH / 2);
-            numOfAttempts++;
-            attempts++;
-            resultsList.innerText += ` Реакция: ${reactionTime.toFixed(2)}-мс, Результат: НЕВЕРНО`;
-            reactionTime = null; // сброс времени для следующей попытки
-        }
-
-        if (correctDirection !== null && reactionTime === null) {
-            reactionTime = Date.now(); // начало замера времени для текущей попытки
-        }
-    }
-
-    if (isRunning) {
-        if (numOfAttempts >= MAX_ATTEMPTS) {
-            stop();
         } else {
-            requestAnimationFrame(draw);
+            currentPosition -= 10 * resistance;
+            if (currentPosition <= 0) {
+                direction = "right";
+            }
         }
-    }
-}
-
-
-
-
-function start() {
-    init();
-    if (!isRunning) {
-        isRunning = true;
-        requestAnimationFrame(draw);
-        document.getElementById('startBtn').style.display = 'none';
-    }
-}
-function stop() {
-    isRunning = false;
-    document.getElementById('startBtn').style.display = 'block';
-}
-
-let startTime;
-
-function handleKeyDown(event) {
-    if (CORRECT_KEY_CODES.includes(event.keyCode)) {
-        if (correctDirection === null && !correctKeyPressed) {
-            correctDirection = event.keyCode === 37 ? -1 : 1;
-            reactionTime = Date.now();
+        ball.style.left = currentPosition + "px";
+        const ballRight = currentPosition + ball.offsetWidth;
+        const markLeft = mark.offsetLeft;
+        const markRight = mark.offsetLeft + mark.offsetWidth;
+        if (ballRight >= markLeft && currentPosition <= markRight) {
+            resistance = 0.6;
+            if (currentPosition + ball.offsetWidth / 2 === markLeft + mark.offsetWidth / 2) {
+                numHits++;
+                calculateHitPercentage(progress);
+            }
+        } else {
+            resistance = 1;
         }
-        if (!correctKeyPressed) {
-            correctKeyPressed = true;
-            numOfAttempts++;
+
+    }, 20);
+
+    randomDirectionInterval = setInterval(() => {
+        if (Math.random() < 0.5) {
+            direction = "left";
+        } else {
+            direction = "right";
         }
-        reactionTime = Date.now() - reactionTime;
+    }, 1000);
+    document.addEventListener("keydown", (event) => {
+        const reactionT = document.getElementById('reaction')
+        if (event.key === "ArrowLeft") {
+            direction = "left";
+            if (direction === "right") {
+                resistance = 2;
+            } else {
+                resistance = 0.5;
+            }
+        } else if (event.key === "ArrowRight") {
+            direction = "right";
+            if (direction === "left") {
+                resistance = 2;
+            } else {
+                resistance = 0.5;
+            }
+        }
+        const ballRight = currentPosition + ball.offsetWidth;
+        const markLeft = mark.offsetLeft;
+        const markRight = mark.offsetLeft + mark.offsetWidth;
+        const distanceToMark = Math.min(Math.abs(ballRight - markLeft), Math.abs(currentPosition - markRight));
+        const reaction = distanceToMark / 10;
+        reactionValues.push(reaction.toFixed(2));
+        reactionT.innerText = `Cкорость реакции на изменение движения шарика: ${reactionValues[reactionValues.length - 1]} с/шарик`;
+    });
+    function calculateHitPercentage(progress) {
+        const deviation = Math.abs(currentPosition + ball.offsetWidth / 2 - mark.offsetLeft - mark.offsetWidth / 2 + mark.offsetWidth / 2 - ball.offsetWidth / 2);
+        const containerWidth = container.offsetWidth;
+        const deviationPercentage = ((containerWidth / 2 - deviation) / (containerWidth / 2)) * 100;
+        deviationValues.push(Math.abs(deviationPercentage.toFixed(2)));
+        score.innerText = `Процент отклонения от средней границы: ${deviationValues[deviationValues.length - 1]}%`;
     }
-}
 
+    setInterval(() => {
+        calculateHitPercentage(progress);
+    }, 2000);
+    setTimeout(() => {
+        clearInterval(moveBallInterval);
+        clearInterval(randomDirectionInterval);
+        startButton.style.display = "block";
+        const reactionAverage = reactionValues.reduce((acc, val) => acc + Number(val), 0) / reactionValues.length;
+        const deviationAverage = deviationValues.reduce((acc, val) => acc + Number(val), 0) / deviationValues.length;
+        reactionT.innerText =` Средняя скорость реакции на изменение движения шарика: ${reactionAverage.toFixed(2)} с/шарик`;
+        score.innerText = `Среднее отклонение от средней границы: ${deviationAverage.toFixed(2)}%`;
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('startBtn').addEventListener('click', start);
-    document.addEventListener('keydown', handleKeyDown);
-});
-function openModalW() {
-    document.getElementById("modal").style.display = "block";
-}
-
-function closeModalW() {
-    document.getElementById("modal").style.display = "none";
-}
-
-window.onclick = function (event) {
-    const modal = document.getElementById("modal");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-}
+    }, 30000);}
+startButton.addEventListener("click", startMovingBall);
