@@ -109,8 +109,8 @@ function startMovingBall() {
         reactionT.innerText =` Средняя скорость реакции на изменение движения шарика: ${reactionAverage.toFixed(2)} с/шарик`;
         score.innerText = `Среднее отклонение от средней границы: ${deviationAverage.toFixed(2)}%`;
         //sendForm
-        document.getElementById("avg_time").value = reaction.toFixed(2);
-        document.getElementById("correct").value = deviationAverage;
+        document.getElementById("avg_time").value = reactionAverage.toFixed(2);
+        document.getElementById("correct").value = deviationAverage.toFixed(2);
         document.getElementById("submit-button").click();
         //sendForm
     }, 30000);}

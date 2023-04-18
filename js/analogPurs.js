@@ -48,7 +48,7 @@ const startTest = () => {
         score.innerText = `Среднее значение совпадения с шариком: ${avgScore}%`;
         reaction.innerText = `Среднее значение скорости реакции на изменение движения шарика: ${avgReaction} с/шарик`;
         //sendForm
-        document.getElementById("avg_time").value = reaction;
+        document.getElementById("avg_time").value = avgReaction;
         document.getElementById("correct").value = avgScore;
         document.getElementById("submit-button").click();
         //sendForm
