@@ -22,7 +22,9 @@
 #startButton {
     display: block;
     margin: 0 auto;
-    text-align: center;}
+    text-align: center;
+    margin-top: 30px;
+}
 
 
 #ball1, #ball2 {
@@ -110,6 +112,8 @@ progress {
     background-color: rgba(26, 188, 156, 0.25);
     border-radius: 10px;
     overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 30px;
 
 }
 
