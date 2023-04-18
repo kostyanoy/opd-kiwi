@@ -47,6 +47,11 @@ const startTest = () => {
         const avgReaction = (reactions.reduce((a, b) => a + b, 0) / reactions.length / 1000).toFixed(2);
         score.innerText = `Среднее значение совпадения с шариком: ${avgScore}%`;
         reaction.innerText = `Среднее значение скорости реакции на изменение движения шарика: ${avgReaction} с/шарик`;
+        //sendForm
+        document.getElementById("avg_time").value = avgReaction;
+        document.getElementById("correct").value = avgScore;
+        document.getElementById("submit-button").click();
+        //sendForm
     }, testTime);
     startButton.style.display = "none";
     const ball1MoveInterval = setInterval(() => {
