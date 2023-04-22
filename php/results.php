@@ -1,5 +1,48 @@
 <?php
 
+//get percent of max score
+function get_percent($score, $max_score): int {
+    return round($score / $max_score * 100);
+}
+
+//preparing
+include_once("boot.php");
+
+//must be logged in
+if (!is_auth()) {
+    header("Location: login_form.php");
+}
+
+//getting db connection and user id
+$conn = get_db_connection();
+$user_id = $_SESSION["user_id"];
+
+//get scores of the last tries
+$sql = 'select tc.test_id, tr.score, tc.profession1, tc.profession2, tc.profession3 from test_coefficients tc LEFT JOIN ( SELECT tr.test_id as test_id, max(date) as date From test_results tr where tr.user_id = ? group by tr.test_id ) lt on lt.test_id = tc.test_id LEFT JOIN test_results tr on tr.date = lt.date ORDER BY tc.test_id';
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$tests = $stmt->get_result();
+$stmt->close();
+
+$scores = array(0, 0, 0);
+$max_scores = array(0.1, 0.1, 0.1);
+
+$row = $tests->fetch_array();
+
+//sum up currecnt and max scores
+while ($row) {
+    $s = is_null($row["score"]) ? 0 : $row["score"];
+    $scores[0] += $s * $row["profession1"];
+    $scores[1] += $s * $row["profession2"];
+    $scores[2] += $s * $row["profession3"];
+
+    $max_scores[0] += 100 * $row["profession1"];
+    $max_scores[1] += 100 * $row["profession2"];
+    $max_scores[2] += 100 * $row["profession3"];
+
+    $row = $tests->fetch_array();
+}
 
 ?>
 
@@ -25,36 +68,36 @@
                 <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path id="dPath1" class="circle" stroke-dasharray="10, 100" d="M18 2.0845
+                <path id="dPath1" class="circle" stroke-dasharray="<?php echo get_percent($scores[0], $max_scores[0])?>, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <text id="dText1" x="18" y="20.35" class="percentage">0%</text>
+                <text id="dText1" x="18" y="20.35" class="percentage"><?php echo get_percent($scores[0], $max_scores[0])?>%</text>
             </svg>
         </div>
 
         <div class="single-chart">
-        <div class="title">Тестировщик ПО</div>
+            <div class="title">Тестировщик ПО</div>
             <svg viewBox="0 0 36 36" class="circular-chart green">
                 <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path id="dPath2" class="circle" stroke-dasharray="0, 100" d="M18 2.0845
+                <path id="dPath2" class="circle" stroke-dasharray="<?php echo get_percent($scores[1], $max_scores[1])?>, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <text id="dText2" x="18" y="20.35" class="percentage">0%</text>
+                <text id="dText2" x="18" y="20.35" class="percentage"><?php echo get_percent($scores[1], $max_scores[1])?>%</text>
             </svg>
         </div>
 
         <div class="single-chart">
-        <div class="title">Сисадмин</div>
+            <div class="title">Сисадмин</div>
             <svg viewBox="0 0 36 36" class="circular-chart blue">
                 <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path id="dPath3" class="circle" stroke-dasharray="0, 100" d="M18 2.0845
+                <path id="dPath3" class="circle" stroke-dasharray="<?php echo get_percent($scores[2], $max_scores[2])?>, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <text id="dText3" x="18" y="20.35" class="percentage">0%</text>
+                <text id="dText3" x="18" y="20.35" class="percentage"><?php echo get_percent($scores[2], $max_scores[2])?>%</text>
             </svg>
         </div>
     </div>

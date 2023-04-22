@@ -25,7 +25,8 @@ function get_db_connection(): mysqli
  * Checks if user is authorized
  * @return bool
  */
-function is_auth(){
+function is_auth()
+{
     return isset($_SESSION["user_id"]);
 }
 
@@ -33,7 +34,8 @@ function is_auth(){
  * Checks if user is expert
  * @return bool
  */
-function is_expert(){
+function is_expert()
+{
     return is_auth() && isset($_SESSION["status"]) && $_SESSION["status"] == "expert";
 }
 
