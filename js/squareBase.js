@@ -21,11 +21,12 @@ document.addEventListener('keydown', (event) => {
 });
 
 
-function send(avg, total, correct, misses) {
+function send(avg, total, correct, misses, score) {
     document.getElementById("avg_time").value = avg
     document.getElementById("total_time").value = total
     document.getElementById("correct").value = correct
     document.getElementById("misses").value = misses
+    document.getElementById("score").value = score
     document.getElementById("submit-button").click()
 }
 
@@ -143,7 +144,7 @@ class SquareBase {
 			document.removeEventListener("keydown", this.listener)
 
 			this.startButton.style.display = "block"
-			send(this.getAverageTime(), this.totalTime, this.correct, this.incorrect)
+			send(this.getAverageTime(), this.totalTime, this.correct, this.incorrect, Math.round(this.correct * 100 / (this.correct + this.incorrect))) 
 		}, time)
 	}
 

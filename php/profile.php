@@ -23,6 +23,7 @@ $stmt = $conn->prepare('SELECT * FROM users u JOIN test_results r on u.id = r.us
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $test_results = $stmt->get_result();
+$stmt->close();
 
 //preparing for showing tests
 $test_id = 0;

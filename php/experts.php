@@ -27,7 +27,11 @@
             }
             ?>
         </div>
-        <a href="/" class="back-button">Назад</a>
+        <a href="/" class="button back-button">Назад</a>
+        <?php
+        if (is_expert())
+            echo '<a href="test_coefficients.php" class="button settings-button">Коэффициенты</a>';
+        ?>
     </div>
 </body>
 

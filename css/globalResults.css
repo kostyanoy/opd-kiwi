@@ -1,0 +1,132 @@
+/* Общие стили */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(76, 76, 115, 0.584);
+}
+
+.flex-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.single-chart {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+    max-height: 250px;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+
+.percentage {
+    font-size: 0.5rem;
+    text-anchor: middle;
+}
+
+/* Стили для первой диаграммы */
+
+.orange .circle {
+    stroke: #fe8401;
+}
+
+#dPath1 {
+    animation-delay: 0.5s;
+}
+
+/* Стили для второй диаграммы */
+
+.green .circle {
+    stroke: #00a78f;
+}
+
+#dPath2 {
+    animation-delay: 1s;
+}
+
+/* Стили для третьей диаграммы */
+
+.blue .circle {
+    stroke: #0099cc;
+}
+
+#dPath3 {
+    animation-delay: 1.5s;
+}
+
+/* Анимация диаграмм */
+
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+
+/* Стили профессий */
+
+.profession {
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+.profession h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.profession p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Стили кнопки возврата */
+
+.return-button {
+    display: block;
+    width: 200px;
+    margin: 50px auto;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #fe8401;
+    ;
+    border-radius: 5px;
+}
+
+.return-button:hover {
+    background-color: #f3953d;
+}
+
+.hint,
+.title {
+    text-align: center;
+}
