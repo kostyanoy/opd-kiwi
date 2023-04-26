@@ -75,6 +75,9 @@ p{
 .test-button:hover {
     background-color:  #ffa340;
 }
+.none{
+  opacity: 0;
+}
 /* шапка и логин*/
 #menu ul {
     list-style: none;
