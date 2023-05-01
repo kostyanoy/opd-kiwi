@@ -37,9 +37,6 @@ function getNextWord() {
     document.getElementById('word').innerHTML = words[wordIndex];
     document.getElementById('word').style.color = colors[colorIndex];
 }
-
-
-
 document.getElementById('red').addEventListener('click', function() {
     checkAnswer('red');
 });
