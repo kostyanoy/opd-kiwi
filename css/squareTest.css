@@ -134,6 +134,7 @@ p {
   margin: 0 10px;
   background-color: #ccc;
   font-size: 3em;
+  border-radius: 4px;
 }
 
 .btn {

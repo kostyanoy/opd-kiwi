@@ -15,9 +15,11 @@
 #container {
     position: relative;
     width: 500px;
-    height: 100px;
+    height: 50px;
     margin: auto;
-    border: 1px solid black;
+    border: 3px solid rgb(39, 24, 50);
+    border-radius: 5px;
+    background-color: rgba(31, 31, 66, 0.496);
 }
 #startButton {
     display: block;
@@ -35,11 +37,11 @@
 }
 
 #ball1 {
-    background-color: red;
+    background-color:  rgb(222, 132, 48);
 }
 
 #ball2 {
-    background-color: blue;
+    background-color: rgba(112, 160, 70, 0.837);
 }
 
 .result {

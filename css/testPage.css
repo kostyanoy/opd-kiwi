@@ -69,8 +69,14 @@ p{
     font-size: 16px;
     font-weight: bold;
 }
+.lower{
+  margin-top: 20px;
+}
 .test-button:hover {
     background-color:  #ffa340;
+}
+.none{
+  opacity: 0;
 }
 /* шапка и логин*/
 #menu ul {

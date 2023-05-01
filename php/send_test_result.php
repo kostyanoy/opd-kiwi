@@ -15,6 +15,7 @@ $total_time = $_POST["total_time"];
 $correct = $_POST["correct"];
 $misses = $_POST["misses"];
 $date = date('Y-m-d G:i:s', time());
+$score = $_POST["score"];
 
 $stmt = $conn->prepare('SELECT t.id FROM tests t WHERE t.name = ?');
 $stmt->bind_param("s", $test_name);
@@ -34,8 +35,8 @@ if (!$test_id){
 }
 $stmt->close();
 
-$stmt = $conn->prepare('INSERT INTO test_results (user_id, test_id, avg_time, total_time, correct, misses, date) VALUES (?, ?, ?, ?, ?, ?, ?)');
-$stmt->bind_param("iiddiis", $user_id, $test_id, $avg_time, $total_time, $correct, $misses, $date);
+$stmt = $conn->prepare('INSERT INTO test_results (user_id, test_id, avg_time, total_time, correct, misses, date, score) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+$stmt->bind_param("iiddiisi", $user_id, $test_id, $avg_time, $total_time, $correct, $misses, $date, $score);
 $stmt->execute();
 $stmt->close();
 
