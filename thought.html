@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/thought.css">
+    <button class="back-button" onclick="location.href='testPage.html'">Назад</button>
+    <title>Document</title>
+</head>
+<meta charset="UTF-8">
+</head>
+
+<body>
+<h1>Тест на мышление</h1>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalW()">&times</span>
+        <h2>Инструкция</h2>
+        <p>СЮДА ИНСТРУКЦИЮ</p>
+    </div>
+</div>
+<p>СЮДА ИНСТРУКЦИЮ</p>
+<button id="start-button" onclick="start()">Начать</button>
+<div id="sequence"></div>
+<p>
+<div id="answer-input" style="display: none;">
+    <input type="text" id="answer">
+    <button id="check" onclick="checkAnswer()">Проверить</button>
+    <button id="end-test" onclick="endTest()" style="display:none;">Завершить тест</button>
+</div>
+<div id="score"></div>
+<div id="result"></div>
+<div id="test-end"></div>
+<p>
+    <p>
+    <button onclick="nextSequence()" id="next" style="display: none;">Далее</button>
+    <script src="js/sendTestResult.js"></script>
+    <script src="js/thought.js"></script>
+    <script src="js/modalWindowController.js"></script>
+</body>
+</html>
