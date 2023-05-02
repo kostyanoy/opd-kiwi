@@ -22,6 +22,7 @@
     </div>
 </div>
 <p>СЮДА ИНСТРУКЦИЮ</p>
+<p><progress id="progress" value="0" max="100"></progress></p>
 <button id="start-button" onclick="start()">Начать</button>
 <div id="sequence"></div>
 <p>
@@ -36,6 +37,15 @@
 <p>
     <p>
     <button onclick="nextSequence()" id="next" style="display: none;">Далее</button>
+
+<form id="sendForm">
+    <input type="hidden" name="test_name" id="test_name" value="Мышление">
+    <input type="hidden" name="avg_time" id="avg_time">
+    <input type="hidden" name="total_time" id="total_time">
+    <input type="hidden" name="correct" id="correct">
+    <input type="hidden" name="misses" id="misses">
+    <input id="submit-button" type="submit" value="Submit" style="display: none;">
+</form>
     <script src="js/sendTestResult.js"></script>
     <script src="js/thought.js"></script>
     <script src="js/modalWindowController.js"></script>

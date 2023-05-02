@@ -54,6 +54,10 @@ function endTest() {
     startButton.textContent = "Начать";
     startButton.addEventListener("click", start);
     document.body.appendChild(startButton);
+    //sendForm
+    document.getElementById("correct").value = percentage;
+    document.getElementById("submit-button").click();
+    //sendForm
 }
 
 document.getElementById("end-test").addEventListener("click", endTest);
@@ -92,8 +96,10 @@ function displaySequence() {
         document.getElementById("answer").value = "";
         document.getElementById("score").innerHTML = `Правильных ответов: ${numCorrect}`;
         numDisplayed++;
+        document.getElementById('progress').value = ((numDisplayed / sequences.length) * 100).toFixed(0);
     }
 }
+
 
 
 function checkAnswer() {
