@@ -113,7 +113,7 @@ progress::-webkit-progress-value {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
+    
   }
   .test-text{
     font-size: 26px;
@@ -122,3 +122,6 @@ progress::-webkit-progress-value {
   .answer-string{
     margin: 30px;
   }
+button#end-test{
+    margin-top: 20px;
+}

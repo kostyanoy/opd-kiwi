@@ -83,5 +83,21 @@ progress::-webkit-progress-value {
     border-radius: 10px;
 }
 
+button.even, button.odd, button.start, button.instructions-button{
+    background-color: rgb(220, 125, 36);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    border-radius: 40px;
+}
+button.start{
+    margin-top: 20px;
+}
 
+button.even:hover, button.odd:hover, button.start:hover, button.back-button:hover{
+    background-color: rgba(217, 145, 84, 0.84);
+}
 
