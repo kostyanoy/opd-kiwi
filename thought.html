@@ -18,26 +18,36 @@
     <div class="modal-content">
         <span class="close" onclick="closeModalW()">&times</span>
         <h2>Инструкция</h2>
-        <p>СЮДА ИНСТРУКЦИЮ</p>
+        <p>
+            Вам будут представлены последовательности чисел, заданные в определённом порядке <br>
+            Ваша задача - проанализировать, как задана последовательность и в поле ввода написать число, котрое является следующим в данной вам последовательности. <br>
+           Например, последовательность: 2,4,6... Правильный ответ: 8
+        </p>
     </div>
 </div>
-<p>СЮДА ИНСТРУКЦИЮ</p>
+<p>Укажите "следующее" число в последовательности</p>
 <p><progress id="progress" value="0" max="100"></progress></p>
+<div class="container">
 <button id="start-button" onclick="start()">Начать</button>
-<div id="sequence"></div>
+</div>
+<div id="sequence" class="test-text"></div>
 <p>
-<div id="answer-input" style="display: none;">
+<div id="answer-input" style="display: none;" class="answer-string">
     <input type="text" id="answer">
     <button id="check" onclick="checkAnswer()">Проверить</button>
+    <div class="container">
     <button id="end-test" onclick="endTest()" style="display:none;">Завершить тест</button>
+    </div>
 </div>
 <div id="score"></div>
+<br>
 <div id="result"></div>
+<br>
 <div id="test-end"></div>
-<p>
-    <p>
+    <br>
+    <div class="container">
     <button onclick="nextSequence()" id="next" style="display: none;">Далее</button>
-
+</div>
 <form id="sendForm">
     <input type="hidden" name="test_name" id="test_name" value="Мышление">
     <input type="hidden" name="avg_time" id="avg_time">

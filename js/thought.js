@@ -92,7 +92,7 @@ function displaySequence() {
     if (typeof sequenceFunc === "function") {
         const sequence = sequenceFunc();
         const sequenceString = sequence.join(", ");
-        document.getElementById("sequence").innerHTML = ` ${currentSequence + 1}: ${sequenceString}.`;
+        document.getElementById("sequence").innerHTML = ` ${currentSequence + 1}: ${sequenceString}...`;
         document.getElementById("answer").value = "";
         document.getElementById("score").innerHTML = `Правильных ответов: ${numCorrect}`;
         numDisplayed++;
