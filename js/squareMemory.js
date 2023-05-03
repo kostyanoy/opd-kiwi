@@ -1,12 +1,6 @@
 class MemoryReaction extends SquareBase {
     constructor(squares, startButton, resultLabel, progressBar, amount = 10) {
         super(squares, startButton, resultLabel, progressBar, amount)
-        this.results = [
-            new Result(9, 1000, "У вас отличная сложная реакция!"),
-            new Result(7, 9, "У вас хорошая сложная реакция!"),
-            new Result(5, 7, "У вас удовлетворительная сложная реакция!"),
-            new Result(0, 5, "У вас неудовлетворительная сложная реакция!"),
-        ]
 
         this.codes = ["Enter", "Space"]
         this.colorHistory = []
@@ -66,7 +60,7 @@ class MemoryReaction extends SquareBase {
     }
 
     getEndMessage() {
-        return `Поздравляем: ${this.chooseResult(this.results, this.correct)} (${this.getAverageTime()} мс). Правильных ответов: ${this.correct}`
+        return `Ваша реакция: (${this.getAverageTime()} мс). Правильных ответов: ${this.correct}`
     }
 }
 
