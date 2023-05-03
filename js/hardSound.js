@@ -36,7 +36,6 @@ function startTest() {
         }
     }
     window.speechSynthesis.speak(audio);
-
     startTime = performance.now();
 }
 let wrong = 0;
