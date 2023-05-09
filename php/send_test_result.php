@@ -15,7 +15,7 @@ $total_time = $_POST["total_time"];
 $correct = $_POST["correct"];
 $misses = $_POST["misses"];
 $date = date('Y-m-d G:i:s', time());
-$score = $_POST["score"];
+$score = (is_null($_POST["score"])) ? 0 : $_POST["score"];
 
 $stmt = $conn->prepare('SELECT t.id FROM tests t WHERE t.name = ?');
 $stmt->bind_param("s", $test_name);
