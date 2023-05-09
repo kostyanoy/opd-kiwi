@@ -56,6 +56,7 @@ function endTest() {
     document.body.appendChild(startButton);
     //sendForm
     document.getElementById("correct").value = percentage;
+    document.getElementById("score").value = percentage;
     document.getElementById("submit-button").click();
     //sendForm
 }

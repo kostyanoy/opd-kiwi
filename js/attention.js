@@ -1,13 +1,10 @@
 const words = ['красный', 'зеленый', 'синий', 'оранжевый', 'желтый', 'розовый'];
 const colors = ['red', 'green', 'blue', 'orange', 'yellow', 'pink'];
-let wordIndex = Math.floor(Math.random() * words.length);
-let colorIndex = Math.floor(Math.random() * colors.length);
+let wordIndex;
+let colorIndex;
 let answer = '';
-let count = 0;
-let correctAnswers = 0;
+let count, correctAnswers, correctReactionTime, incorrectReactionTime = 0;
 let startTime;
-let correctReactionTime = 0;
-let incorrectReactionTime = 0;
 
 document.getElementById('start').addEventListener('click', function() {
     document.getElementById('start').style.display = 'none';
@@ -63,12 +60,18 @@ document.getElementById('pink').addEventListener('click', function() {
 
 function checkAnswer(clickedColor) {
     const reactionTime = new Date().getTime() - startTime;
+    let avgReactionTimePercent;
     if (count >= 20) {
         document.getElementById('word').innerHTML = 'Тест завершен!';
         document.getElementById('start').style.display = 'block';
         const avgCorrectReactionTime = correctReactionTime / correctAnswers;
         const avgIncorrectReactionTime = incorrectReactionTime / (count - correctAnswers);
         document.getElementById('score').innerHTML = `Среднее время реакции на правильные ответы: ${avgCorrectReactionTime.toFixed(2)} мс, на неправильные ответы: ${avgIncorrectReactionTime.toFixed(2)} мс`;
+        const avgReactionTime = (correctAnswers > 0) ? avgCorrectReactionTime : 0;
+        avgReactionTimePercent = ((avgReactionTime / 1000) * 100).toFixed(0);
+        //sendForm
+        document.getElementById("score").value = avgReactionTimePercent;
+        //sendForm
         document.getElementById('red').disabled = true;
         document.getElementById('green').disabled = true;
         document.getElementById('blue').disabled = true;
@@ -95,6 +98,7 @@ function checkAnswer(clickedColor) {
     document.getElementById('word').style.color = colors[colorIndex];
     answer = '';
     document.getElementById('progress').value = ((count / 20).toFixed(2) * 100).toFixed(0);
+
     //sendForm
     document.getElementById('avg_time').value = averageReactionTime;
     document.getElementById("correct").value = correctAnswers;

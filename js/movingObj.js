@@ -54,7 +54,7 @@ function spacePress() {
     const distance = Math.sqrt((point.x - pointX) ** 2 + (point.y - pointY) ** 2);
     totalDistance += distance;
     count++;
-    progress.value = ((count / 10).toFixed(2) * 100).toFixed(0);
+    document.getElementById('progress').value = ((count / 10).toFixed(2) * 100).toFixed(0);
     showResult();
 }
 
@@ -72,13 +72,14 @@ function showResult() {
         result = result + matchPercent;
     }
     let answer;
-    if (count == 10) {
+    if (count === 10) {
         answer = (result / 10).toFixed(0)
         resultDiv.innerText = `Ваш средний процент попадания: ${answer}%`;
         startButton.style.display = 'block';
         startButton.disabled = false;
         //sendForm
         document.getElementById("avg_time").value = answer;
+        document.getElementById("score").value = answer;
         document.getElementById("submit-button").click();
         //sendForm
     }

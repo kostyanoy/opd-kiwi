@@ -50,6 +50,7 @@ const startTest = () => {
         //sendForm
         document.getElementById("avg_time").value = avgReaction;
         document.getElementById("correct").value = avgScore;
+        document.getElementById("score").value = avgScore;
         document.getElementById("submit-button").click();
         //sendForm
     }, testTime);

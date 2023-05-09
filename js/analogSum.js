@@ -111,6 +111,8 @@ function startMovingBall() {
         //sendForm
         document.getElementById("avg_time").value = reactionAverage.toFixed(2);
         document.getElementById("correct").value = deviationAverage.toFixed(2);
+        document.getElementById("score").value = deviationAverage.toFixed(2);
+
         document.getElementById("submit-button").click();
         //sendForm
     }, 30000);}

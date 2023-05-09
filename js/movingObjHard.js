@@ -6,7 +6,7 @@ const progress1 = document.getElementById("progress1");
 const progress2 = document.getElementById("progress2");
 const progress3 = document.getElementById("progress3");
 const startButton = document.getElementById("startButton");
-
+let theResult;
 const circleX1 = 200;
 const circleY1 = 200;
 const circleX2 = 600;
@@ -108,10 +108,10 @@ function updatePointPosition() {
     const angle1 = performance.now() / 500;
     point1.x = circleX1 + Math.cos(angle1) * circleRadius;
     point1.y = circleY1 + Math.sin(angle1) * circleRadius;
-    const angle2 = performance.now() / 1000;
+    const angle2 = performance.now() / 300;
     point2.x = circleX2 + Math.cos(angle2) * circleRadius;
     point2.y = circleY2 + Math.sin(angle2) * circleRadius;
-    const angle3 = performance.now() / 2000;
+    const angle3 = performance.now() / 100;
     point3.x = circleX3 + Math.cos(angle3) * circleRadius;
     point3.y = circleY3 + Math.sin(angle3) * circleRadius;
 }
@@ -148,6 +148,7 @@ function showOverallResult() {
     startButton.disabled = false;
     //sendForm
     document.getElementById("avg_time").value = averageAccuracy;
+    document.getElementById("score").value = averageAccuracy;
     document.getElementById("submit-button").click();
     //sendForm
 }
@@ -165,7 +166,7 @@ function showResult1() {
     totalAttempts1++;
     const averageAccuracy1 = totalAccuracy1 / totalAttempts1;
     document.getElementById('result1').innerText = `${accuracy.toFixed(0)}%`;
-    if (count1 == 10 && count2 == 10 && count3 == 10){
+    if (count1 === 10 && count2 === 10 && count3 === 10){
         showOverallResult();
         document.getElementById('result1').innerText = `${averageAccuracy1.toFixed(0)}%`;
     }
@@ -184,7 +185,7 @@ function showResult2() {
     totalAttempts2++;
     const averageAccuracy2 = totalAccuracy2 / totalAttempts2;
     document.getElementById('result2').innerText = `${accuracy.toFixed(0)}%`;
-    if (count1 == 10 && count2 == 10 && count3 == 10){
+    if (count1 === 10 && count2 === 10 && count3 === 10){
         showOverallResult();
         document.getElementById('result2').innerText = `${averageAccuracy2.toFixed(0)}%`;
     }
@@ -203,7 +204,7 @@ function showResult3() {
     totalAttempts3++;
     const averageAccuracy3 = totalAccuracy3 / totalAttempts3;
     document.getElementById('result3').innerText = `${accuracy.toFixed(0)}%`;
-    if (count1 == 10 && count2 == 10 && count3 == 10){
+    if (count1 === 10 && count2 === 10 && count3 === 10){
         showOverallResult();
         document.getElementById('result3').innerText = `${averageAccuracy3.toFixed(0)}%`;
     }

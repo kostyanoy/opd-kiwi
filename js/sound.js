@@ -4,7 +4,7 @@ let attempts = 0;
 const maxAttempts = 10;
 let totalReactionTime = 0;
 let averageReactionTime;
-
+let averagePercent;
 
 function startTest() {
     document.querySelector(".start").style.display = "none";
@@ -15,7 +15,7 @@ function startTest() {
         average.innerText = "";
     }
     attempts++;
-    progress.value = ((attempts / 10).toFixed(2) * 100).toFixed(0);
+    document.getElementById('progress').value = ((attempts / 10).toFixed(2) * 100).toFixed(0);
     if (attempts > maxAttempts) {
         return;
     }
@@ -27,7 +27,7 @@ function playSound() {
     const audio = new Audio('audio/sound1.mp3');
     audio.play();
     const reactionStartTime = Date.now();
-    const listener = function (event) {
+    const listener = function () {
         const reactionTime = Date.now() - reactionStartTime;
         document.getElementById("reactionTime").innerHTML = `Ваше время реакции: ${reactionTime} миллисекунд`;
         totalReactionTime += reactionTime;
@@ -37,12 +37,14 @@ function playSound() {
     document.addEventListener('keydown', listener);
     if (attempts === maxAttempts) {
         average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(2)} миллисекунд.`;
+        averagePercent = ((averageReactionTime / delay) * 100).toFixed(2);
 
         document.querySelector(".start").style.display = "block";
 
         //sendForm
         document.getElementById("total_time").value = totalReactionTime.toFixed(2);
         document.getElementById("avg_time").value = averageReactionTime.toFixed(2);
+        document.getElementById("score").value = averagePercent;
         document.getElementById("submit-button").click();
         //sendForm
     }
