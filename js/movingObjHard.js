@@ -105,7 +105,7 @@ function drawFixedPoint() {
 }
 
 function updatePointPosition() {
-    const angle1 = performance.now() / 500;
+    const angle1 = performance.now() / 600;
     point1.x = circleX1 + Math.cos(angle1) * circleRadius;
     point1.y = circleY1 + Math.sin(angle1) * circleRadius;
     const angle2 = performance.now() / 300;
@@ -121,7 +121,7 @@ function firstCircle() {
     const distance = Math.sqrt((point1.x - fixedPointX1) ** 2 + (point1.y - fixedPointY1) ** 2);
     totalDistance1 += distance;
     count1++;
-    progress1.value = ((count1 / 10).toFixed(2) * 100).toFixed(0);
+    progress1.value = ((count1 / 35).toFixed(2) * 100).toFixed(0);
     showResult1();
 }
 
@@ -129,7 +129,7 @@ function secondCircle() {
     const distance = Math.sqrt((point2.x - fixedPointX2) ** 2 + (point2.y - fixedPointY2) ** 2);
     totalDistance2 += distance;
     count2++;
-    progress2.value = ((count2 / 10).toFixed(2) * 100).toFixed(0);
+    progress2.value = ((count2 / 35).toFixed(2) * 100).toFixed(0);
     showResult2();
 }
 
@@ -137,7 +137,7 @@ function thirdCircle() {
     const distance = Math.sqrt((point3.x - fixedPointX3) ** 2 + (point3.y - fixedPointY3) ** 2);
     totalDistance3 += distance;
     count3++;
-    progress3.value = ((count3 / 10).toFixed(2) * 100).toFixed(0);
+    progress3.value = ((count3 / 35).toFixed(2) * 100).toFixed(0);
     showResult3();
 }
 
@@ -166,7 +166,7 @@ function showResult1() {
     totalAttempts1++;
     const averageAccuracy1 = totalAccuracy1 / totalAttempts1;
     document.getElementById('result1').innerText = `${accuracy.toFixed(0)}%`;
-    if (count1 === 10 && count2 === 10 && count3 === 10){
+    if (count1 === 35 && count2 === 35 && count3 === 35){
         showOverallResult();
         document.getElementById('result1').innerText = `${averageAccuracy1.toFixed(0)}%`;
     }
@@ -185,7 +185,7 @@ function showResult2() {
     totalAttempts2++;
     const averageAccuracy2 = totalAccuracy2 / totalAttempts2;
     document.getElementById('result2').innerText = `${accuracy.toFixed(0)}%`;
-    if (count1 === 10 && count2 === 10 && count3 === 10){
+    if (count1 === 35 && count2 === 35 && count3 === 35){
         showOverallResult();
         document.getElementById('result2').innerText = `${averageAccuracy2.toFixed(0)}%`;
     }
@@ -204,7 +204,7 @@ function showResult3() {
     totalAttempts3++;
     const averageAccuracy3 = totalAccuracy3 / totalAttempts3;
     document.getElementById('result3').innerText = `${accuracy.toFixed(0)}%`;
-    if (count1 === 10 && count2 === 10 && count3 === 10){
+    if (count1 === 35 && count2 === 35 && count3 === 35){
         showOverallResult();
         document.getElementById('result3').innerText = `${averageAccuracy3.toFixed(0)}%`;
     }
@@ -251,13 +251,13 @@ startButton.addEventListener("click", function() {
 });
 
 document.addEventListener('keydown', (event) => {
-    if (event.code === 'Digit1' && count1 < 10 && startButton.disabled === true) {
+    if (event.code === 'Digit1' && count1 < 35 && startButton.disabled === true) {
         firstCircle();
     }
-    if (event.code === 'Digit2' && count2 < 10 && startButton.disabled === true) {
+    if (event.code === 'Digit2' && count2 < 35 && startButton.disabled === true) {
         secondCircle();
     }
-    if (event.code === 'Digit3' && count3 < 10 && startButton.disabled === true) {
+    if (event.code === 'Digit3' && count3 < 35 && startButton.disabled === true) {
         thirdCircle();
     }
 });
