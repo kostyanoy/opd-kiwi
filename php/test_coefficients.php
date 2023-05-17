@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 
 
 //getting info from db for all the test-qualities
-$tests_results = $conn->query('SELECT t.id, tq.quality_id, profession1, profession2, profession3, tq.alias, t.name AS test_name, q.name AS quality_name FROM tests t LEFT JOIN test_qualities tq ON t.id = tq.test_id LEFT JOIN qualities q ON q.id = tq.quality_id ORDER BY t.id, tq.quality_id');
+$tests_results = $conn->query('SELECT t.id, tq.quality_id, profession1, profession2, profession3, tq.alias, t.name AS test_name, q.name AS quality_name FROM tests t RIGHT JOIN test_qualities tq ON t.id = tq.test_id LEFT JOIN qualities q ON q.id = tq.quality_id ORDER BY t.id, tq.quality_id');
 $row = $tests_results->fetch_array();
 
 //get amount of qualities for each test
