@@ -30,8 +30,8 @@ $stmt->close();
 //init arrays
 $prof_scores = array(0, 0, 0);
 $prof_max_scores = array(0.1, 0.1, 0.1);
-$qual_scores = array();
-$qual_max_scores = array();
+$qual_scores = array(array(), array(), array());
+$qual_max_scores = array(array(), array(), array());
 
 $row = $tests->fetch_array();
 
@@ -48,12 +48,26 @@ while ($row) {
     $prof_max_scores[2] += 100 * $row["profession3"];
 
     //qualities scores
-    if (!isset($qual_scores[$row["name"]])) {
-        $qual_scores[$row["name"]] = 0;
-        $qual_max_scores[$row["name"]] = 0;
+    if (!isset($qual_scores[0][$row["name"]])) {
+        $qual_scores[0][$row["name"]] = 0;
+        $qual_max_scores[0][$row["name"]] = 0.1;
     }
-    $qual_scores[$row["name"]] += $s;
-    $qual_max_scores[$row["name"]] += 100;
+    if (!isset($qual_scores[1][$row["name"]])) {
+        $qual_scores[1][$row["name"]] = 0;
+        $qual_max_scores[1][$row["name"]] = 0.1;
+    }
+    if (!isset($qual_scores[2][$row["name"]])) {
+        $qual_scores[2][$row["name"]] = 0;
+        $qual_max_scores[2][$row["name"]] = 0.1;
+    }
+
+    $qual_scores[0][$row["name"]] += $s * $row["profession1"];
+    $qual_scores[1][$row["name"]] += $s * $row["profession2"];
+    $qual_scores[2][$row["name"]] += $s * $row["profession3"];
+
+    $qual_max_scores[0][$row["name"]] += 100 * $row["profession1"];
+    $qual_max_scores[1][$row["name"]] += 100 * $row["profession1"];
+    $qual_max_scores[2][$row["name"]] += 100 * $row["profession1"];
 
     $row = $tests->fetch_array(); //next row
 }
@@ -82,8 +96,7 @@ while ($row) {
                 <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path id="dPath1" class="circle"
-                    stroke-dasharray="<?php echo get_percent($prof_scores[0], $prof_max_scores[0]) ?>, 100" d="M18 2.0845
+                <path id="dPath1" class="circle" stroke-dasharray="<?php echo get_percent($prof_scores[0], $prof_max_scores[0]) ?>, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
                 <text id="dText1" x="18" y="20.35" class="percentage">
@@ -98,8 +111,7 @@ while ($row) {
                 <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path id="dPath2" class="circle"
-                    stroke-dasharray="<?php echo get_percent($prof_scores[1], $prof_max_scores[1]) ?>, 100" d="M18 2.0845
+                <path id="dPath2" class="circle" stroke-dasharray="<?php echo get_percent($prof_scores[1], $prof_max_scores[1]) ?>, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
                 <text id="dText2" x="18" y="20.35" class="percentage">
@@ -114,8 +126,7 @@ while ($row) {
                 <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path id="dPath3" class="circle"
-                    stroke-dasharray="<?php echo get_percent($prof_scores[2], $prof_max_scores[2]) ?>, 100" d="M18 2.0845
+                <path id="dPath3" class="circle" stroke-dasharray="<?php echo get_percent($prof_scores[2], $prof_max_scores[2]) ?>, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
                 <text id="dText3" x="18" y="20.35" class="percentage">
@@ -133,6 +144,19 @@ while ($row) {
                 менее ориентирован на бизнес, у него другие источники мотивации и другие цели. В первую очередь
                 инди-игра — это художественное высказывание
             </p>
+            <?php
+            foreach ($qual_scores[0] as $key => $value) {
+                $qual_percent = get_percent($qual_scores[0][$key], $qual_max_scores[0][$key]); // percent of quality
+                if ($qual_percent == 0){
+                    continue;
+                }
+
+                echo "<div class='quality'>";
+                echo "<div class='name'>$key</div>"; // quality name
+                echo "<progress class='progress' value='$qual_percent' max='100'></progress>"; // progress bar
+                echo "</div>";
+            }
+            ?>
         </div>
 
         <div class="profession">
@@ -142,6 +166,19 @@ while ($row) {
                 разноплановый специалист, который способен подстраиваться под особенности работы конкретной компании и
                 ее продукта
             </p>
+            <?php
+            foreach ($qual_scores[1] as $key => $value) {
+                $qual_percent = get_percent($qual_scores[1][$key], $qual_max_scores[1][$key]); // percent of quality
+                if ($qual_percent == 0){
+                    continue;
+                }
+
+                echo "<div class='quality'>";
+                echo "<div class='name'>$key</div>"; // quality name
+                echo "<progress class='progress' value='$qual_percent' max='100'></progress>"; // progress bar
+                echo "</div>";
+            }
+            ?>
         </div>
 
         <div class="profession">
@@ -151,20 +188,20 @@ while ($row) {
                 отпор просьбам перетащить шкаф или починить телефон. Но сисадмины, вопреки стереотипам, не просто жмут
                 на злосчастную any key, они спасают сотрудников, налаживают работу и защищают важные данные компании
             </p>
-        </div>
-    </div>
+            <?php
+            foreach ($qual_scores[2] as $key => $value) {
+                $qual_percent = get_percent($qual_scores[2][$key], $qual_max_scores[2][$key]); // percent of quality
+                if ($qual_percent == 0){
+                    continue;
+                }
 
-    <div class='qualities'>
-        <?php
-        foreach ($qual_scores as $key => $value) {
-            $qual_percent = get_percent($qual_scores[$key], $qual_max_scores[$key]); // percent of quality
-        
-            echo "<div class='quality'>";
-            echo "<div class='name'>$key</div>"; // quality name
-            echo "<progress class='progress' value='$qual_percent' max='100'></progress>"; // progress bar
-            echo "</div>";
-        }
-        ?>
+                echo "<div class='quality'>";
+                echo "<div class='name'>$key</div>"; // quality name
+                echo "<progress class='progress' value='$qual_percent' max='100'></progress>"; // progress bar
+                echo "</div>";
+            }
+            ?>
+        </div>
     </div>
 </body>
 
