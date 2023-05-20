@@ -54,9 +54,9 @@ function endTest() {
     //sendForm
     document.getElementById("correct").value = percentage;
     document.getElementById("score").value = percentage;
+    document.getElementById("submit-button").click();
     //sendForm
 }
-document.getElementById("submit-button").click();
 function nextSequence() {
     currentSequence++;
     if (currentSequence >= sequences.length) {
