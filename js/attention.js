@@ -89,6 +89,9 @@ function checkAnswer(clickedColor) {
         avgReactionTimePercent = ((avgReactionTime / 1000) * 100).toFixed(0);
         //sendForm
         document.getElementById("score").value = avgReactionTimePercent;
+        document.getElementById('avg_time').value = averageReactionTime;
+        document.getElementById("correct").value = correctAnswers;
+        document.getElementById("submit-button").click();
         //sendForm
         disableButtons();
         return;
@@ -110,10 +113,4 @@ function checkAnswer(clickedColor) {
     document.getElementById('word').style.color = colors[colorIndex];
     answer = '';
     document.getElementById('progress').value = ((count / 20).toFixed(2) * 100).toFixed(0);
-
-    //sendForm
-    document.getElementById('avg_time').value = averageReactionTime;
-    document.getElementById("correct").value = correctAnswers;
-    document.getElementById("submit-button").click();
-    //sendForm
 }
