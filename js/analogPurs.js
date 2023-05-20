@@ -1,7 +1,7 @@
 const ball1 = document.getElementById("ball1");
 const ball2 = document.getElementById("ball2");
 const startButton = document.getElementById("startButton");
-const score = document.getElementById("score");
+const scoreMy = document.getElementById("scoreMy");
 const reaction = document.getElementById("reaction");
 let lastDirectionChangeTime = 0;
 let ball2Position = 0;
@@ -45,12 +45,12 @@ const startTest = () => {
 
         const avgScore = (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(2);
         const avgReaction = (reactions.reduce((a, b) => a + b, 0) / reactions.length / 1000).toFixed(2);
-        score.innerText = `Среднее значение совпадения с шариком: ${avgScore}%`;
+        scoreMy.innerText = `Среднее значение совпадения с шариком: ${avgScore}%`;
         reaction.innerText = `Среднее значение скорости реакции на изменение движения шарика: ${avgReaction} с/шарик`;
         //sendForm
         document.getElementById("avg_time").value = avgReaction;
         document.getElementById("correct").value = avgScore;
-        document.getElementById("score").value = avgScore;
+        document.getElementById("scoreMy").value = avgScore;
         document.getElementById("submit-button").click();
         //sendForm
     }, testTime);
@@ -89,7 +89,7 @@ const startTest = () => {
             const reactionTime = elapsedTime - lastDirectionChangeTime;
             const speed = (reactionTime / 1000).toFixed(2);
             const percentMatch = ((elapsedTime / testTime) * 100).toFixed(2);
-            score.innerText = `Совпадение с шариком: ${Math.max(percentMatch, 0)}%`;
+            scoreMy.innerText = `Совпадение с шариком: ${Math.max(percentMatch, 0)}%`;
             reaction.innerText = `Cкорость реакции на изменение движения шарика: ${speed} с/шарик`;
             lastDirectionChangeTime = elapsedTime;
         }
@@ -98,13 +98,25 @@ const startTest = () => {
     }, 50);
 };
 const moveBall2 = (direction) => {
+    const containerWidth = ball2.parentElement.clientWidth;
+    const ball2Width = ball2.clientWidth;
+    let newBall2Position = ball2Position;
+
     if (direction === "right") {
-        ball2Position += 10;
+        newBall2Position += 10;
+        if (newBall2Position + ball2Width > containerWidth) {
+            newBall2Position = containerWidth - ball2Width;
+        }
     } else if (direction === "left") {
-        ball2Position -= 10;
+        newBall2Position -= 10;
+        if (newBall2Position < 0) {
+            newBall2Position = 0;
+        }
     }
+    ball2Position = newBall2Position;
     ball2.style.left = ball2Position + "px";
 };
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
         moveBall2("left");

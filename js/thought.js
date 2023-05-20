@@ -31,32 +31,29 @@ function start() {
     document.getElementById("next").style.display = "block";
     document.getElementById("test-end").innerHTML = "";
     document.getElementById("result").innerHTML = "";
-    document.getElementById("score").innerHTML = "";
+    document.getElementById("scoreMy").innerHTML = "";
     document.getElementById("answer").disabled = false; // added this line
 }
 
 
 function endTest() {
     document.getElementById("end-test").style.display = "none";
-    document.getElementById("start-button").style.display = "block";
+    const startButton = document.getElementById("start-button");
+    startButton.style.display = "block"; // Отобразить кнопку "Начать"
     const percentage = Math.round((numCorrect / numDisplayed) * 100);
     const resultString = `${numCorrect} из ${numDisplayed} (${percentage}%) правильных ответов`;
     document.getElementById("test-end").innerHTML = `Тест завершен. Результат: ${resultString}.`;
     document.getElementById("sequence").innerHTML = "";
     document.getElementById("answer-input").style.display = "none";
     document.getElementById("answer").disabled = true;
-    document.getElementById("submit").disabled = true;
     document.getElementById("next").style.display = "none";
     document.getElementById("end-test").style.display = "none";
-    document.getElementById("score").innerHTML = "";
-    const startButton = document.createElement("button");
-    startButton.id = "start-button";
-    startButton.textContent = "Начать";
+    document.getElementById("scoreMy").innerHTML = "";
     startButton.addEventListener("click", start);
     document.body.appendChild(startButton);
     //sendForm
     document.getElementById("correct").value = percentage;
-    document.getElementById("score").value = percentage;
+    document.getElementById("scoreMy").value = percentage;
     document.getElementById("submit-button").click();
     //sendForm
 }
@@ -73,10 +70,8 @@ function nextSequence() {
         document.getElementById("sequence").innerHTML = "";
         document.getElementById("answer-input").style.display = "none";
         document.getElementById("answer").value = "";
-        document.getElementById("submit").disabled = true;
         document.getElementById("answer-input").style.display = "block";
         document.getElementById("answer").disabled = false;
-        document.getElementById("submit").disabled = false;
 
         return;
     }
@@ -95,7 +90,7 @@ function displaySequence() {
         const sequenceString = sequence.join(", ");
         document.getElementById("sequence").innerHTML = ` ${currentSequence + 1}: ${sequenceString}...`;
         document.getElementById("answer").value = "";
-        document.getElementById("score").innerHTML = `Правильных ответов: ${numCorrect}`;
+        document.getElementById("scoreMy").innerHTML = `Правильных ответов: ${numCorrect}`;
         numDisplayed++;
         document.getElementById('progress').value = ((numDisplayed / sequences.length) * 100).toFixed(0);
     }
@@ -140,11 +135,11 @@ function checkAnswer() {
             break
     }
     if (userAnswer === correctAnswer) {
-        document.getElementById("score").innerHTML = "Правильно!";
+        document.getElementById("scoreMy").innerHTML = "Правильно!";
         numCorrect++;
         isCorrect = true;
     } else {
-        document.getElementById("score").innerHTML = `Неправильно. Правильный ответ: ${correctAnswer}`;
+        document.getElementById("scoreMy").innerHTML = `Неправильно. Правильный ответ: ${correctAnswer}`;
     }
     return isCorrect;
 }

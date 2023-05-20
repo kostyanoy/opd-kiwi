@@ -6,7 +6,7 @@ mark.classList.add("mark");
 mark.style.left = (container.offsetWidth / 2 - 5) + "px";
 container.appendChild(mark);
 const reactionT = document.getElementById('reaction')
-const score = document.getElementById("score");
+const scoreMy= document.getElementById("scoreMy");
 let currentPosition = 0;
 let direction = "right";
 let randomDirectionInterval;
@@ -94,7 +94,7 @@ function startMovingBall() {
         const containerWidth = container.offsetWidth;
         const deviationPercentage = ((containerWidth / 2 - deviation) / (containerWidth / 2)) * 100;
         deviationValues.push(Math.abs(deviationPercentage.toFixed(2)));
-        score.innerText = `Процент отклонения от средней границы: ${deviationValues[deviationValues.length - 1]}%`;
+        scoreMy.innerText = `Процент отклонения от средней границы: ${deviationValues[deviationValues.length - 1]}%`;
     }
 
     setInterval(() => {
@@ -107,11 +107,11 @@ function startMovingBall() {
         const reactionAverage = reactionValues.reduce((acc, val) => acc + Number(val), 0) / reactionValues.length;
         const deviationAverage = deviationValues.reduce((acc, val) => acc + Number(val), 0) / deviationValues.length;
         reactionT.innerText =` Средняя скорость реакции на изменение движения шарика: ${reactionAverage.toFixed(2)} с/шарик`;
-        score.innerText = `Среднее отклонение от средней границы: ${deviationAverage.toFixed(2)}%`;
+        scoreMy.innerText = `Среднее отклонение от средней границы: ${deviationAverage.toFixed(2)}%`;
         //sendForm
         document.getElementById("avg_time").value = reactionAverage.toFixed(2);
         document.getElementById("correct").value = deviationAverage.toFixed(2);
-        document.getElementById("score").value = deviationAverage.toFixed(2);
+        document.getElementById("scoreMy").value = deviationAverage.toFixed(2);
 
         document.getElementById("submit-button").click();
         //sendForm

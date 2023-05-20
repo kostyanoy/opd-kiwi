@@ -1,7 +1,7 @@
 const min = 10;
 const max = 99;
-let average = document.getElementById("average");
-let resultDiv = document.getElementById("result");
+const average = document.getElementById("average");
+const resultDiv = document.getElementById("result");
 let startTime;
 let a;
 let b;
@@ -32,7 +32,7 @@ function startTest() {
     const [a, b] = generateNumbers();
     let audio = new SpeechSynthesisUtterance(`${a} плюс ${b}`);
     audio.lang = "ru-RU";
-    audio.onboundary = function(event) {
+    audio.onboundary = function (event) {
         if (event.charIndex === 0) {
             startTimeFirstDigit = performance.now();
         } else {
@@ -58,9 +58,7 @@ function checkAnswer(answer) {
         if (time.toFixed(2) < 0) {
             resultDiv.innerText = "А вот так вот не надо...";
         } else {
-            resultDiv.innerText = `Ваше время реакции: ${time.toFixed(
-                2
-            )} миллисекунд.`;
+            resultDiv.innerText = `Ваше время реакции: ${time.toFixed(2)} миллисекунд.`;
             totalReactionTime += time;
         }
     } else {
@@ -75,22 +73,15 @@ function checkAnswer(answer) {
     percentage = (averageReactionTime / totalReactionTime) * 100;
 
     if (attempts === maxAttempts) {
-        average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(
-            2
-        )} миллисекунд.`;
+        average.innerText += ` Среднее время реакции: ${averageReactionTime.toFixed(2)} миллисекунд.`;
         document.querySelector(".start").style.display = "block";
 
         //sendForm
-        document.getElementById("avg_time").value = averageReactionTime.toFixed(
-            2
-        );
+        document.getElementById("avg_time").value = averageReactionTime.toFixed(2);
         document.getElementById("total_time").value = totalReactionTime.toFixed(2);
         document.getElementById("correct").value = maxAttempts - wrong;
         document.getElementById("misses").value = wrong;
         document.getElementById("score").value = percentage;
-
-
-
 
         document.getElementById("submit-button").click();
         //sendForm

@@ -12,6 +12,12 @@
     outline: none;
     cursor: pointer;
 }
+#start-button {
+    position: fixed;
+    top: 250px;
+    left: 1200px;
+}
+
 button#submit,button#start-button,button#end-test ,button.button,button#next,button#check,
 button.instructions-button{
     background-color: rgb(220, 125, 36);

@@ -6,32 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/attention.css">
-    <button class="back-button" onclick="location.href='testPage.html'">Назад</button>
     <title>Document</title>
 </head>
+
 <body>
 <h1>Тест на внимание</h1>
+<button class="back-button" onclick="location.href='testPage.html'">Назад</button>
 <button class="instructions-button" onclick="openModalW()">Инструкция</button>
 <p></p>
 <div id="modal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModalW()">&times;</span>
         <h2>Инструкция</h2>
-        <p>Вам нужно указать цвет, которым написано слово, само являющееся названием цвета. Название цвета (слово) может не совпадать с цветом которым оно написано. Например, слово «зеленый» может быть написано красным цветом. Для большей ясности вот несколько примеров заданий и правильные ответы к ним:
-            <ul>
-                <li><font color="#B22222">синий</font> - правильный ответ «красный»</li>
-                <li><font color="#9ACD32">желтый</font> - правильный ответ «зеленый»</li>
-                <li><font color="#FF69B4">красный</font> - правильный ответ «розовый»</li>
-                <li><font color="#FF8C00">желтый</font> - правильный ответ «оранжевый»</li>
-            </ul>
-        </p>
+        <p>Вам нужно указать цвет, которым написано слово, само являющееся названием цвета. Название цвета (слово) может не совпадать с цветом, которым оно написано. Например, слово «зеленый» может быть написано красным цветом. Для большей ясности вот несколько примеров заданий и правильные ответы к ним:</p>
+        <ul>
+            <li><font color="#B22222">синий</font> - правильный ответ «красный»</li>
+            <li><font color="#9ACD32">желтый</font> - правильный ответ «зеленый»</li>
+            <li><font color="#FF69B4">красный</font> - правильный ответ «розовый»</li>
+            <li><font color="#FF8C00">желтый</font> - правильный ответ «оранжевый»</li>
+        </ul>
     </div>
 </div>
-<p>Нажимайте кнопку, обозначающую тот цвет, которым написано слово </p>
+<p>Нажимайте кнопку, обозначающую тот цвет, которым написано слово</p>
 <p><progress id="progress" value="0" max="100"></progress></p>
 <p><button id="start">Начать</button></p>
 <p id="word"></p>
-<div сlass="answ-bottons">
+<div class="answ-bottons">
     <button id="red" class="colorb" disabled>Красный</button>
     <button id="green" class="colorb" disabled>Зеленый</button>
     <button id="blue" class="colorb" disabled>Синий</button><br>
@@ -40,11 +40,9 @@
     <button id="pink" class="colorb" disabled>Розовый</button>
 </div>
 <p id="result"></p>
-<p>
 <p id="correctAnswers"></p>
-<p id="score"></p>
+<p id="scoreMy"></p>
 
-</p>
 <form id="sendForm">
     <input type="hidden" name="test_name" id="test_name" value="Внимание">
     <input type="hidden" name="avg_time" id="avg_time">
@@ -59,4 +57,5 @@
 <script src="js/attention.js"></script>
 <script src="js/modalWindowController.js"></script>
 </body>
+
 </html>
