@@ -22,7 +22,7 @@ $stmt->bind_param("s", $test_name);
 $stmt->execute();
 $result = $stmt->get_result();
 
-print_r($result);
+print_r($_POST);
 
 $test_id = $result->fetch_array()["id"];
 
