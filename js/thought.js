@@ -53,10 +53,10 @@ function endTest() {
     document.body.appendChild(startButton);
     //sendForm
     document.getElementById("correct").value = percentage;
-    document.getElementById("scoreMy").value = percentage;
-    document.getElementById("submit-button").click();
+    document.getElementById("score").value = percentage;
     //sendForm
 }
+document.getElementById("submit-button").click();
 
 document.getElementById("end-test").addEventListener("click", endTest);
 

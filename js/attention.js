@@ -88,7 +88,7 @@ function checkAnswer(clickedColor) {
         const avgReactionTime = (correctAnswers > 0) ? avgCorrectReactionTime : 0;
         avgReactionTimePercent = ((avgReactionTime / 1000) * 100).toFixed(0);
         //sendForm
-        document.getElementById("scoreMy").value = avgReactionTimePercent;
+        document.getElementById("score").value = avgReactionTimePercent;
         //sendForm
         disableButtons();
         return;
