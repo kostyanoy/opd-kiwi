@@ -57,9 +57,6 @@ function endTest() {
     //sendForm
 }
 document.getElementById("submit-button").click();
-
-document.getElementById("end-test").addEventListener("click", endTest);
-
 function nextSequence() {
     currentSequence++;
     if (currentSequence >= sequences.length) {
