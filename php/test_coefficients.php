@@ -72,7 +72,8 @@ $quality = $qualities_amount->fetch_array();
                     for ($j = 0; $j < 3; $j++) {
                         $col = "profession" . ($j + 1);
                         $value = is_null($row[$col]) ? 0 : $row[$col];
-                        echo "<td><input type='number' name='number[$row_num][$j]' value='$value' min='0' max='10' step='0.1'></td>"; //input fields
+                        // echo "<td><input type='number' name='number[$row_num][$j]' value='$value' min='0' max='10' step='0.1'></td>"; //input fields
+                        echo "<td>$value</td>"; //input fields
                     }
                     echo "</tr>";
                     
